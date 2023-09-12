@@ -2,6 +2,9 @@
 export default defineNuxtConfig({
   modules: [
     '@una-ui/nuxt',
+    'nuxt-security',
+    // nuxt-vitest
+    // @pinia/nuxt
   ],
 
   css: [

@@ -11,7 +11,10 @@
     "typecheck": "vue-tsc --noEmit",
     "lint": "eslint --cache .",
     "lint:fix": "eslint --fix --cache .",
-    "generate-pwa-icons": "tsx scripts/generate-pwa-icons.ts"
+    "cleanup": "rm -rf .nuxt dist yarn.lock node_modules"
+  },
+  "dependencies": {
+    "@iconify-json/fa6-solid": "^1.1.15"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.41.0",
@@ -19,6 +22,7 @@
     "@una-ui/nuxt": "npm:@una-ui/nuxt-edge@latest",
     "@unocss/eslint-config": "^0.51.12",
     "eslint": "^8.49.0",
+    "lint-staged": "^14.0.1",
     "nuxt": "npm:nuxt3@latest",
     "nuxt-security": "^0.14.4",
     "sharp": "^0.32.5",
@@ -29,7 +33,7 @@
     "vue-tsc": "^1.8.10"
   },
   "simple-git-hooks": {
-    "pre-commit": "yarn lint-staged"
+    "pre-commit": "npm lint-staged"
   },
   "lint-staged": {
     "*": "eslint --fix"
