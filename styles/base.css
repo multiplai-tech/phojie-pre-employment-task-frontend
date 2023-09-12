@@ -1,0 +1,7 @@
+html,
+body,
+#__nuxt {
+  min-height: 100dvh;
+  margin: 0;
+  padding: 0;
+}
