@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="flex flex-col">
+  <div class="min-h-screen flex flex-col">
     <!-- header -->
     <TheHeader />
 

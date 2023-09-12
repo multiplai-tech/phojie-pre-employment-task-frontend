@@ -1,6 +1,7 @@
 {
   "name": "frontend",
   "type": "module",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -11,10 +12,14 @@
     "typecheck": "vue-tsc --noEmit",
     "lint": "eslint --cache .",
     "lint:fix": "eslint --fix --cache .",
-    "cleanup": "rm -rf .nuxt dist yarn.lock node_modules"
+    "generate-pwa-icons": "tsx scripts/generate-pwa-icons.ts",
+    "reset": "rm -rf .nuxt dist yarn.lock node_modules && yarn install",
+    "cleanup": "rm -rf .nuxt dist"
   },
   "dependencies": {
-    "@iconify-json/fa6-solid": "^1.1.15"
+    "@iconify-json/fa6-solid": "^1.1.15",
+    "nuxt-security": "^0.14.4",
+    "simple-git": "^3.18.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.41.0",
@@ -24,7 +29,6 @@
     "eslint": "^8.49.0",
     "lint-staged": "^14.0.1",
     "nuxt": "npm:nuxt3@latest",
-    "nuxt-security": "^0.14.4",
     "sharp": "^0.32.5",
     "sharp-ico": "^0.1.5",
     "simple-git-hooks": "^2.9.0",
