@@ -8,8 +8,8 @@ export default defineNuxtConfig({
     '@una-ui/nuxt',
     'nuxt-security',
     '~/modules/build-env',
+    '@pinia/nuxt',
     // nuxt-vitest
-    // @pinia/nuxt
   ],
 
   app: {
