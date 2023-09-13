@@ -1,5 +1,5 @@
 {
-  "name": "frontend",
+  "name": "@goteam-ti/frontend",
   "type": "module",
   "version": "0.0.0",
   "private": true,
@@ -12,7 +12,6 @@
     "typecheck": "vue-tsc --noEmit",
     "lint": "eslint --cache .",
     "lint:fix": "eslint --fix --cache .",
-    "generate-pwa-icons": "tsx scripts/generate-pwa-icons.ts",
     "reset": "rm -rf .nuxt dist yarn.lock node_modules && yarn install",
     "cleanup": "rm -rf .nuxt dist"
   },
