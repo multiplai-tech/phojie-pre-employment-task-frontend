@@ -1,3 +1,6 @@
+import { security } from './config/security'
+import { pwa } from '~/config/pwa'
+
 export default defineNuxtConfig({
   typescript: {
     tsConfig: {
@@ -12,12 +15,12 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    // '/': { prerender: true },
+    '/': { prerender: true },
   },
 
   modules: [
     '@una-ui/nuxt',
-    // 'nuxt-security',
+    'nuxt-security',
     '~/modules/build-env',
     '@pinia/nuxt',
     // nuxt-vitest
@@ -65,4 +68,9 @@ export default defineNuxtConfig({
     ],
     injectAtEnd: true,
   },
+
+  pwa,
+  // eslint-disable-next-line @typescript-eslint/prefer-ts-expect-error
+  // @ts-ignore nuxt-security is conditional
+  security,
 })
