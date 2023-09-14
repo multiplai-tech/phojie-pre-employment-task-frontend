@@ -37,10 +37,6 @@ export function useValidation(form: Record<string, any>, schema: any) {
   // validate field on blur
   function validateField(id: keyof Form) {
     try {
-      // only validate if the field has an error in the errors object already
-      if (!Object.keys(errors.value).includes(id as string))
-        return
-
       // remove the field from the errors object if it exists, so we can validate it again
       errors.value = errors.value && Object.fromEntries(
         Object.entries(errors.value).filter(([key]) => key !== id),
