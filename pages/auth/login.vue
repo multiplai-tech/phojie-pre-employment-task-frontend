@@ -8,12 +8,12 @@ definePageMeta({
 
 <template>
   <main class="mx-auto max-w-lg px-4 lg:px-8 sm:px-6">
-    <div class="mx-auto max-w-xl rounded-md text-center space-y-8">
+    <div class="mx-auto max-w-xl rounded-md space-y-8">
       <div class="flex justify-center">
         <AppLogo class="h-35" />
       </div>
 
-      <div class="space-y-1">
+      <div class="text-center space-y-1">
         <h1 class="text-3xl font-extrabold text-muted">
           Sign in to your account
         </h1>
