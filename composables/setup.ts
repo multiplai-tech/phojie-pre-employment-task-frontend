@@ -27,6 +27,7 @@ export function setupPageHeader() {
       if (buildInfo.env !== 'release')
         titleTemplate += ` (${buildInfo.env})`
 
+      // eg "Home | My App (dev)"
       return titleTemplate
     },
   })
