@@ -1,5 +1,5 @@
 import type { ModuleOptions } from '@vite-pwa/nuxt'
-import { APP_INFO } from '~/constants/index'
+import { APP_INFO } from '../constants/index'
 
 const scope = '/'
 
@@ -38,42 +38,7 @@ export const pwa: ModuleOptions = {
     navigateFallbackDenylist: [/^\/api\//],
     navigateFallback: '/',
     cleanupOutdatedCaches: true,
-    runtimeCaching: [
-      {
-        urlPattern: /^https:\/\/fonts.googleapis.com\/.*/i,
-        handler: 'CacheFirst',
-        options: {
-          cacheName: 'google-fonts-cache',
-          expiration: {
-            maxEntries: 10,
-            maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
-          },
-          cacheableResponse: {
-            statuses: [0, 200],
-          },
-        },
-      },
-      {
-        urlPattern: /^https:\/\/fonts.gstatic.com\/.*/i,
-        handler: 'CacheFirst',
-        options: {
-          cacheName: 'gstatic-fonts-cache',
-          expiration: {
-            maxEntries: 10,
-            maxAgeSeconds: 60 * 60 * 24 * 365, // <== 365 days
-          },
-          cacheableResponse: {
-            statuses: [0, 200],
-          },
-        },
-      },
-    ],
   },
   registerWebManifestInRouteRules: true,
   writePlugin: true,
-  devOptions: {
-    // eslint-disable-next-line n/prefer-global/process
-    enabled: process.env.VITE_PLUGIN_PWA === 'true',
-    navigateFallback: scope,
-  },
 }

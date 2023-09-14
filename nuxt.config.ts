@@ -1,5 +1,5 @@
 import { security } from './config/security'
-import { pwa } from '~/config/pwa'
+import { pwa } from './config/pwa'
 
 export default defineNuxtConfig({
   typescript: {
@@ -21,9 +21,11 @@ export default defineNuxtConfig({
   modules: [
     '@una-ui/nuxt',
     'nuxt-security',
-    '~/modules/build-env',
     '@pinia/nuxt',
-    // nuxt-vitest
+    '@vite-pwa/nuxt',
+    // nuxt-vitest, might be out of time for this one
+
+    '~/modules/build-env', // used to inject env variables into the build, see modules/build-env.ts
   ],
 
   runtimeConfig: {
@@ -59,11 +61,13 @@ export default defineNuxtConfig({
   pinia: {
     autoImports: [
       'defineStore',
+      'acceptHMRUpdate',
     ],
   },
 
   imports: {
     dirs: [
+      // We need to import the store directory so that Pinia can auto-import
       './store/*.ts',
     ],
     injectAtEnd: true,
