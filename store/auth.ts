@@ -15,8 +15,10 @@ interface RegistrationInfo {
 }
 
 export const useAuthStore = defineStore('auth', () => {
-  const user = ref<User | null>(null)
-  const isLoggedIn = computed(() => !!user.value)
+  // const user = ref<User | null>(null)
+  const user = useCookie<User | null>('user')
+
+  const isLoggedIn = computed(() => !!user.value || useCookie('XSRF-TOKEN').value)
 
   async function logout() {
     await useFetchApi('/auth/logout', { method: 'POST' })
@@ -25,8 +27,11 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   async function fetchUser() {
-    const { data } = await useFetchApi('/api/v1/user')
+    const { data, error } = await useFetchApi('/api/v1/user')
     user.value = data.value as User
+
+    if (error.value)
+      $revoke()
   }
 
   async function login(credentials: LoginForm) {

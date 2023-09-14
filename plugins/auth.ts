@@ -1,7 +1,6 @@
 export default defineNuxtPlugin(async (nuxtApp) => {
-  const { fetchUser, isLoggedIn } = useAuthStore()
+  const auth = useAuthStore()
 
-  // eslint-disable-next-line n/prefer-global/process
-  if (!process.server && !isLoggedIn)
-    await fetchUser()
+  if (!auth.isLoggedIn)
+    await auth.fetchUser()
 })

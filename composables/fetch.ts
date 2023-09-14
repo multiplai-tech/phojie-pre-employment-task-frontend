@@ -4,6 +4,7 @@ import { useRequestHeaders } from 'nuxt/app'
 export function useFetchApi<T>(path: string, options: UseFetchOptions<T> = {}) {
   let headers: any = {
     accept: 'application/json',
+    referer: 'http://localhost:3000',
   }
 
   const token = useCookie('XSRF-TOKEN')
