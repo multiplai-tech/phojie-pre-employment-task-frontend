@@ -8,11 +8,11 @@ function toggleDark() {
 <template>
   <NButton
     btn="ghost-gray square"
+    size="md"
     @click="toggleDark()"
   >
     <NIcon
-      size="md"
-      name="i-fa6-solid-sun dark:i-fa6-solid-moon"
+      name="i-heroicons-sun-20-solid dark:i-heroicons-moon-20-solid"
     />
   </NButton>
 </template>

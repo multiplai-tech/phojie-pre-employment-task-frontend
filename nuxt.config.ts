@@ -19,7 +19,6 @@ export default defineNuxtConfig({
 
   modules: [
     '@una-ui/nuxt',
-    'nuxt-security',
     '@pinia/nuxt',
     '@vite-pwa/nuxt',
     // nuxt-vitest, might be out of time for this one

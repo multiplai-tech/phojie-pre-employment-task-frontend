@@ -18,7 +18,6 @@
   "dependencies": {
     "@iconify-json/fa6-solid": "^1.1.15",
     "@pinia/nuxt": "^0.4.11",
-    "nuxt-security": "^0.14.4",
     "pinia": "^2.1.6",
     "simple-git": "^3.18.0",
     "zod": "^3.22.2"
