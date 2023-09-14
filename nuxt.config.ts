@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   experimental: {
     typedPages: true,
@@ -9,6 +8,7 @@ export default defineNuxtConfig({
     'nuxt-security',
     '~/modules/build-env',
     '@pinia/nuxt',
+    'nuxt-sanctum-auth',
     // nuxt-vitest
   ],
 
@@ -37,4 +37,24 @@ export default defineNuxtConfig({
   ],
 
   devtools: { enabled: true },
+
+  nuxtSanctumAuth: {
+    baseUrl: 'http://localhost:8000',
+    endpoints: {
+      csrf: '/sanctum/csrf-cookie',
+      login: '/api/v1/auth/login',
+      logout: '/api/v1/auth/logout',
+      user: '/api/v1/user',
+    },
+    csrf: {
+      headerKey: 'X-XSRF-TOKEN',
+      cookieKey: 'XSRF-TOKEN',
+      tokenCookieKey: 'nuxt-sanctum-auth-token',
+    },
+    redirects: {
+      home: '/',
+      login: '/login',
+      logout: '/',
+    },
+  },
 })
