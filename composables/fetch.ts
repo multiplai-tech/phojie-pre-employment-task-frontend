@@ -2,11 +2,12 @@ import type { UseFetchOptions } from 'nuxt/app'
 import { useRequestHeaders } from 'nuxt/app'
 
 export function useFetchApi<T>(path: string, options: UseFetchOptions<T> = {}) {
+  const { backendUrl, frontendUrl, apiBase } = useRuntimeConfig().public
+
   let headers: any = {
     accept: 'application/json',
-    referer: 'http://localhost:3000',
+    referer: frontendUrl,
   }
-
   const token = useCookie('XSRF-TOKEN')
 
   if (token.value)
@@ -20,7 +21,7 @@ export function useFetchApi<T>(path: string, options: UseFetchOptions<T> = {}) {
     }
   }
 
-  return useFetch(`http://localhost:8000${path}`, {
+  return useFetch(backendUrl + apiBase + path, {
     credentials: 'include',
     watch: false,
     ...options,
@@ -32,9 +33,9 @@ export function useFetchApi<T>(path: string, options: UseFetchOptions<T> = {}) {
 }
 
 export async function useFetchCsrf<T>(path?: string, options: UseFetchOptions<T> = {}) {
-  const { csrfCookieUrl } = useRuntimeConfig().public
+  const { backendUrl } = useRuntimeConfig().public
 
-  path = path || csrfCookieUrl
+  path = path || `${backendUrl}/sanctum/csrf-cookie`
 
   return await useFetchApi(path, options)
 }

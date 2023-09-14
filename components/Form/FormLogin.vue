@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import type { LoginForm } from '~/types'
+import type { LoginCredentials } from '~/types'
 import { loginSchema } from '~/schemas/auth'
+import { useAuthStore } from '~/store/auth'
 
 const { login, isLoggedIn } = useAuthStore()
 
 const loading = ref(false)
 
-const form = ref<LoginForm>({
+const form = ref<LoginCredentials>({
   email: 'phojrengel@gmail.com',
   password: 'password',
 })

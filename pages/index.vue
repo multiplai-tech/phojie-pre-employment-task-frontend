@@ -5,12 +5,11 @@ definePageMeta({
   description: 'Dashboard',
 })
 
-const { user, fetchUser } = useAuthStore()
+const { user } = useAuthStore()
 </script>
 
 <template>
-  <div @click="fetchUser()">
-    user:
+  <div>
     {{ user }}
   </div>
 </template>

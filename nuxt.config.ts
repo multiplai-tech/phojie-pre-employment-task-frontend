@@ -1,4 +1,3 @@
-import { security } from './config/security'
 import { pwa } from './config/pwa'
 
 export default defineNuxtConfig({
@@ -25,14 +24,14 @@ export default defineNuxtConfig({
     '@vite-pwa/nuxt',
     // nuxt-vitest, might be out of time for this one
 
-    '~/modules/build-env', // used to inject env variables into the build, see modules/build-env.ts
+    '~/modules/build-env', // used for CI/CD stuff
   ],
 
   runtimeConfig: {
     public: {
-      baseUrl: 'http://goteamapi.test',
-      apiBase: '/api/v1',
-      csrfCookieUrl: 'http://goteamapi.test/sanctum/csrf-cookie',
+      frontendUrl: '',
+      backendUrl: '',
+      apiBase: '',
     },
   },
 
@@ -74,7 +73,4 @@ export default defineNuxtConfig({
   },
 
   pwa,
-  // eslint-disable-next-line @typescript-eslint/prefer-ts-expect-error
-  // @ts-ignore nuxt-security is conditional
-  security,
 })

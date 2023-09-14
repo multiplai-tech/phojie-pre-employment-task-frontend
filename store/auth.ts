@@ -19,7 +19,7 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   async function fetchUser() {
-    const { data, error } = await useFetchApi('/api/v1/user')
+    const { data, error } = await useFetchApi('/user')
     user.value = data.value as User
 
     if (error.value)
@@ -27,10 +27,9 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   async function login(credentials: LoginCredentials) {
-    // await useFetchCsrf()
-    await useFetchApi('/sanctum/csrf-cookie')
+    await useFetchCsrf()
 
-    const login = await useFetchApi('/api/v1/auth/login', {
+    const login = await useFetchApi('/auth/login', {
       method: 'POST',
       body: credentials,
     })
@@ -55,6 +54,7 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   function $revoke() {
+    // We want to revoke the cookie and the user
     user.value = null
     useCookie('XSRF-TOKEN').value = null
   }
