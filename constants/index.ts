@@ -1,4 +1,4 @@
-import type { AppInfo } from '../types'
+import type { AppInfo } from '~/types'
 
 /**
  * I prefer to keep the app info in a separate file so that it's easier to update.
