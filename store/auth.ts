@@ -1,10 +1,4 @@
-import type { LoginForm } from '~/types/index'
-
-interface User {
-  id: number
-  name: string
-  email: string
-}
+import type { LoginCredentials, User } from '~/types/index'
 
 interface RegistrationInfo {
   name: string
@@ -32,7 +26,7 @@ export const useAuthStore = defineStore('auth', () => {
       $revoke()
   }
 
-  async function login(credentials: LoginForm) {
+  async function login(credentials: LoginCredentials) {
     // await useFetchCsrf()
     await useFetchApi('/sanctum/csrf-cookie')
 
