@@ -34,7 +34,8 @@ export interface User {
 }
 
 /**
- * List of schemas types
+ * List of types from our schemas
+ *
  * @see '~/schemas'
  */
 export type LoginCredentials = z.infer<typeof loginSchema>
