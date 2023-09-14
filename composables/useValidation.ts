@@ -7,9 +7,10 @@ export function useValidation(form: Record<string, any>, schema: any) {
   const formValue = toValue(form)
 
   // validate form on submit
-  function validateForm(isFocused = true) {
+  function validateForm(isFocused = true): boolean | undefined {
     try {
       errors.value = {}
+      // parse the form value with the schema
       schema.parse(formValue)
 
       // if no errors
@@ -26,12 +27,10 @@ export function useValidation(form: Record<string, any>, schema: any) {
       // focus on the first error, get the key of the first error
       const firstError = Object.keys(errors.value)[0] as keyof Form
       if (!firstError)
-        return false
+        return
 
       // focus on the first error
       focusInput(firstError)
-
-      return false
     }
   }
 
@@ -42,9 +41,11 @@ export function useValidation(form: Record<string, any>, schema: any) {
         Object.entries(errors.value).filter(([key]) => key !== id),
       )
 
+      // we need to pick the field from the schema, and then parse it to validate
       schema.pick({ [id]: true }).parse({ [id]: formValue[id as string] })
     }
     catch (err) {
+      // if error is from zod, we can get the field errors
       if (err instanceof z.ZodError)
         errors.value = { ...errors.value, ...err.flatten().fieldErrors } as any
     }
@@ -53,7 +54,7 @@ export function useValidation(form: Record<string, any>, schema: any) {
   // focus on input
   function focusInput(id: keyof Form) {
     nextTick(() => {
-      const refId = document.getElementById('password')
+      const refId = document.getElementById(id as string)
       refId?.focus()
     })
   }
