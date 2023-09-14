@@ -1,5 +1,6 @@
 <script setup lang="ts">
 definePageMeta({
+  middleware: 'guest',
   title: 'Login',
   description: 'Login to your account',
   path: '/login',
@@ -8,7 +9,7 @@ definePageMeta({
 
 <template>
   <main class="mx-auto max-w-lg px-4 lg:px-8 sm:px-6">
-    <div class="mx-auto max-w-xl rounded-md space-y-8">
+    <div class="mx-auto max-w-xl rounded-md space-y-12">
       <div class="flex justify-center">
         <AppLogo class="h-35" />
       </div>
@@ -22,13 +23,15 @@ definePageMeta({
         </p>
       </div>
 
-      <FormLogin />
+      <div class="space-y-4">
+        <FormLogin />
 
-      <div class="border border-base rounded-md p-4 text-center text-sm">
-        No account yet?
-        <NLink btn="link square" to="/signup">
-          Create an account here
-        </NLink>
+        <div class="border border-base rounded-md p-4 text-center text-sm">
+          No account yet?
+          <NLink btn="link square" to="/signup">
+            Create an account here
+          </NLink>
+        </div>
       </div>
     </div>
   </main>

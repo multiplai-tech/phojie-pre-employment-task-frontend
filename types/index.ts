@@ -19,4 +19,4 @@ export interface AppInfo {
   twitterSite: string
 }
 
-export type loginForm = z.infer<typeof loginSchema>
+export type LoginForm = z.infer<typeof loginSchema>

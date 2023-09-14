@@ -1,53 +1,58 @@
 <script setup lang="ts">
-import { useToggle } from '@vueuse/core'
-import type { loginForm } from '~/types'
+import type { LoginForm } from '~/types'
 import { loginSchema } from '~/schemas/auth'
 
-const { $sanctumAuth } = useNuxtApp()
+const { login, isLoggedIn } = useAuthStore()
 
-const form = ref<loginForm>({
-  email: '',
-  password: '',
+const loading = ref(false)
+
+const form = ref<LoginForm>({
+  email: 'phojrengel@gmail.com',
+  password: 'password',
 })
-
-const { validateField, validateForm, errors } = useValidation(loginSchema, form)
+const { validateField, validateForm, focusInput, errors } = useValidation(form, loginSchema)
 
 const isPasswordVisible = ref(false)
-const [isLoading, toggleLoading] = useToggle()
 
 async function submitForm() {
-  // trigger loading state
-  isLoading.value = true
+  // validate form
+  const isValid = await validateForm()
 
-  try {
-    await $sanctumAuth.login(
-      {
-        email: form.value.email,
-        password: form.value.password,
-      },
-      // Unknown for now
-      (data: unknown) => {
-        // console.log(data)
-      },
-    )
+  if (!isValid)
+    return
+
+  // trigger loading state
+  loading.value = true
+
+  const { error } = await login(form.value)
+  if (error.value) {
+    errors.value = { ...errors.value, server: error.value.data }
+    form.value.password = ''
+    focusInput('password')
   }
-  catch (error) {
-    console.error(error)
-  }
-  finally {
-    // trigger loading state
-    setTimeout(() => {
-      toggleLoading()
-    }, 2000)
-  }
+
+  loading.value = false
+
+  // redirect to dashboard
+  if (!error.value)
+    navigateTo('/')
 }
 </script>
 
 <template>
+  {{ isLoggedIn }}
   <form
     class="flex flex-col border border-base rounded-md bg-muted p-4 space-y-4"
-    @submit.prevent="validateForm()"
+    @submit.prevent="submitForm()"
   >
+    <NAlert
+      v-if="errors?.server"
+      :description="errors?.server.message"
+      alert="soft-error"
+      icon
+      class="mb-2"
+    />
+
     <NFormGroup
       id="email"
       label="Email"
@@ -58,15 +63,13 @@ async function submitForm() {
         v-model="form.email"
         placeholder="phojrengel@gmail.com"
         class="bg-base"
-        :disabled="isLoading"
-        @blur="validateField({
-          id: 'email',
-          value: form.email,
-        })"
+        :disabled="loading"
+        @blur="validateField('email')"
       />
     </NFormGroup>
 
     <NFormGroup
+      id="password"
       label="Password"
       :status="errors?.password ? 'error' : undefined"
       :message="errors?.password?.[0]"
@@ -79,21 +82,19 @@ async function submitForm() {
           inputTrailing: 'pointer-events-auto cursor-pointer',
         }"
         class="bg-base"
-        :disabled="isLoading"
+        :disabled="loading"
         @trailing="isPasswordVisible = !isPasswordVisible"
-        @blur="validateField({
-          id: 'password',
-          value: form.password,
-        })"
+        @blur="validateField('password')"
       />
     </NFormGroup>
 
     <!-- Actions -->
     <div class="flex flex-col space-y-2">
       <NButton
+        class="mt-2"
         type="submit"
         label="Login"
-        :loading="isLoading"
+        :loading="loading"
       />
     </div>
   </form>

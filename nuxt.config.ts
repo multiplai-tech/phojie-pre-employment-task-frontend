@@ -1,16 +1,35 @@
 export default defineNuxtConfig({
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        target: 3.3,
+      },
+    },
+  },
+
   experimental: {
     typedPages: true,
   },
 
+  routeRules: {
+    // '/': { prerender: true },
+  },
+
   modules: [
     '@una-ui/nuxt',
-    'nuxt-security',
+    // 'nuxt-security',
     '~/modules/build-env',
     '@pinia/nuxt',
-    'nuxt-sanctum-auth',
     // nuxt-vitest
   ],
+
+  runtimeConfig: {
+    public: {
+      baseUrl: 'http://goteamapi.test',
+      apiBase: '/api/v1',
+      csrfCookieUrl: 'http://goteamapi.test/sanctum/csrf-cookie',
+    },
+  },
 
   app: {
     keepalive: true,
@@ -28,25 +47,22 @@ export default defineNuxtConfig({
     '~/styles/base.css',
   ],
 
+  colorMode: {
+    preference: 'dark',
+  },
+
   devtools: { enabled: true },
 
-  nuxtSanctumAuth: {
-    baseUrl: 'http://localhost:8000',
-    endpoints: {
-      csrf: '/sanctum/csrf-cookie',
-      login: '/api/v1/auth/login',
-      logout: '/api/v1/auth/logout',
-      user: '/api/v1/user',
-    },
-    csrf: {
-      headerKey: 'X-XSRF-TOKEN',
-      cookieKey: 'XSRF-TOKEN',
-      tokenCookieKey: 'nuxt-sanctum-auth-token',
-    },
-    redirects: {
-      home: '/',
-      login: '/login',
-      logout: '/',
-    },
+  pinia: {
+    autoImports: [
+      'defineStore',
+    ],
+  },
+
+  imports: {
+    dirs: [
+      './store/*.ts',
+    ],
+    injectAtEnd: true,
   },
 })

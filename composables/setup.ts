@@ -1,4 +1,4 @@
-export function setupPageHeader() {
+export function useSetupPageHeader() {
   const appInfo = useAppInfo()
   const buildInfo = useBuildInfo()
 
