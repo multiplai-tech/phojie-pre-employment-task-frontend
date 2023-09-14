@@ -1,31 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import { useToggle } from '@vueuse/core'
+import type { loginForm } from '~/types'
+import { loginSchema } from '~/schemas/auth'
 
-// !TODO extract to a composition function
+const { $sanctumAuth } = useNuxtApp()
 
-import { z } from 'zod'
-
-const schema = z.object({
-  username: z.string().nonempty({ message: 'Username is required' }),
-  password: z.string()
-    .nonempty({ message: 'Password is required' })
-    .min(8, { message: 'Password must be at least 8 characters' })
-    .refine(value => /[A-Z]/.test(value), {
-      message: 'Password must contain at least one uppercase letter',
-    })
-    .refine(value => /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(value), {
-      message: 'Password must contain at least one special character',
-    }),
-}).required()
-
-type Form = z.infer<typeof schema>
-
-const form = ref<Form>({
-  username: '',
+const form = ref<loginForm>({
+  email: '',
   password: '',
 })
-const errors = ref()
+
+const { validateField, validateForm, errors } = useValidation(loginSchema, form)
 
 const isPasswordVisible = ref(false)
 const [isLoading, toggleLoading] = useToggle()
@@ -35,9 +20,16 @@ async function submitForm() {
   isLoading.value = true
 
   try {
-    // extract form values
-    const { username, password } = form.value
-    // console.log('submitting form', { username, password })
+    await $sanctumAuth.login(
+      {
+        email: form.value.email,
+        password: form.value.password,
+      },
+      // Unknown for now
+      (data: unknown) => {
+        // console.log(data)
+      },
+    )
   }
   catch (error) {
     console.error(error)
@@ -49,47 +41,6 @@ async function submitForm() {
     }, 2000)
   }
 }
-
-// validate form on submit
-function validateForm(isFocused = true) {
-  try {
-    errors.value = {}
-    schema.parse(form.value)
-
-    // if no errors, submit form
-    if (typeof errors.value === 'object' && Object.keys(errors.value).length === 0)
-      submitForm()
-  }
-  catch (err) {
-    if (err instanceof z.ZodError)
-      errors.value = { ...errors.value, ...err.flatten().fieldErrors }
-
-    if (!isFocused)
-      return
-
-    // focus on the first error, get the key of the first error
-    const firstError = Object.keys(errors.value)[0] as keyof Form
-    if (!firstError)
-      return
-
-    const refId = document.getElementById(firstError)
-    refId?.focus()
-  }
-}
-
-// validate field on blur
-function validateField(field: { id: keyof Form; value: string }) {
-  try {
-    errors.value = errors.value && Object.fromEntries(
-      Object.entries(errors.value).filter(([key]) => key !== field.id),
-    )
-    schema.pick({ [field.id]: true }).parse({ [field.id]: field.value })
-  }
-  catch (err) {
-    if (err instanceof z.ZodError)
-      errors.value = { ...errors.value, ...err.flatten().fieldErrors }
-  }
-}
 </script>
 
 <template>
@@ -98,19 +49,19 @@ function validateField(field: { id: keyof Form; value: string }) {
     @submit.prevent="validateForm()"
   >
     <NFormGroup
-      id="username"
-      label="Username"
-      :status="errors?.username ? 'error' : undefined"
-      :message="errors?.username?.[0]"
+      id="email"
+      label="Email"
+      :status="errors?.email ? 'error' : undefined"
+      :message="errors?.email?.[0]"
     >
       <NInput
-        v-model="form.username"
+        v-model="form.email"
         placeholder="phojrengel@gmail.com"
         class="bg-base"
         :disabled="isLoading"
         @blur="validateField({
-          id: 'username',
-          value: form.username,
+          id: 'email',
+          value: form.email,
         })"
       />
     </NFormGroup>

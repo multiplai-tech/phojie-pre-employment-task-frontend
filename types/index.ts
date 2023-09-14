@@ -1,3 +1,7 @@
+import type { z } from 'zod'
+
+import type { loginSchema } from '~/schemas/auth'
+
 export interface BuildInfo {
   version: string
   commit: string
@@ -14,3 +18,5 @@ export interface AppInfo {
   ogImageLink: string
   twitterSite: string
 }
+
+export type loginForm = z.infer<typeof loginSchema>
