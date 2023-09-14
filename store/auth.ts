@@ -1,4 +1,3 @@
-import { acceptHMRUpdate, defineStore } from 'pinia'
 import type { LoginForm } from '~/types/index'
 
 interface User {
@@ -15,7 +14,6 @@ interface RegistrationInfo {
 }
 
 export const useAuthStore = defineStore('auth', () => {
-  // const user = ref<User | null>(null)
   const user = useCookie<User | null>('user')
 
   const isLoggedIn = computed(() => !!user.value || useCookie('XSRF-TOKEN').value)
