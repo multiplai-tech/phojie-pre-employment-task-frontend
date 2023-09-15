@@ -10,6 +10,21 @@ import {
 import presetUna from '@una-ui/preset'
 
 export default {
+  safelist: [
+    'badge-solid-error',
+  ],
+  shortcuts: [
+    /**
+     * We override the `una-ui` config here.
+     * @param root0
+     * @param root0."0"
+     * @param root0."1"
+     * @param root0."2"
+     */
+    [/^nav-link-active-text(-(\S+))?$/, ([, , c = 'primary']) => `bg-gray-200/90 dark:bg-gray-900/90 text-${c}-600 dark:text-${c}-500`],
+    [/^nav-link-inactive-text(-(\S+))?$/, ([, , c = 'primary']) => `text-${c}-800 dark:text-${c}-100`],
+    [/^nav-link-text(-(\S+))?$/, ([, , c = 'primary']) => `hover:bg-gray-200/90 hover:dark:bg-gray-900/90 hover:text-${c}-600 dark:hover:text-${c}-500`],
+  ],
   preflight: false,
   presets: [
     presetUno(),
