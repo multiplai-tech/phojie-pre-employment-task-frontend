@@ -13,14 +13,14 @@ const projects = [
       <div class="w-10 flex flex-shrink-0 items-center justify-center">
         <NAvatar
           avatar="~"
-          class="bg-$c-gray-100"
+          class="bg-$c-gray-100 group-hover:bg-primary"
         >
-          <NIcon :name="project.icon" class="text-$c-gray-600" />
+          <NIcon :name="project.icon" class="text-$c-gray-600 group-hover:text-white" />
         </NAvatar>
       </div>
       <div class="flex flex-1 items-center justify-between truncate">
         <div class="flex-1 truncate px-4 py-2 text-sm">
-          <span class="font-medium text-$c-gray-600 group-hover:text-primary">
+          <span class="font-medium text-$c-gray-600 group-hover:text-primary-active">
             {{ project.name }}
           </span>
           <div class="flex items-center space-x-3">
