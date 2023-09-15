@@ -10,7 +10,7 @@ interface RegistrationInfo {
 export const useAuthStore = defineStore('auth', () => {
   const user = useCookie<User | null>('user')
 
-  const isLoggedIn = computed(() => !!user.value || useCookie('XSRF-TOKEN').value)
+  const authenticated = computed(() => !!user.value || useCookie('XSRF-TOKEN').value)
 
   async function logout() {
     await useFetchApi('/auth/logout', { method: 'POST' })
@@ -53,7 +53,7 @@ export const useAuthStore = defineStore('auth', () => {
     return register
   }
 
-  return { user, isLoggedIn, login, fetchUser, logout, register }
+  return { user, authenticated, login, fetchUser, logout, register }
 })
 
 if (import.meta.hot)

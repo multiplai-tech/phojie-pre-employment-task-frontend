@@ -3,7 +3,7 @@ import type { LoginCredentials } from '~/types'
 import { loginSchema } from '~/schemas/auth'
 import { useAuthStore } from '~/store/auth'
 
-const { login, isLoggedIn } = useAuthStore()
+const { login, authenticated } = useAuthStore()
 
 const loading = ref(false)
 
@@ -41,7 +41,7 @@ async function submitForm() {
 </script>
 
 <template>
-  {{ isLoggedIn }}
+  {{ authenticated }}
   <form
     class="flex flex-col border border-base rounded-md bg-muted p-4 space-y-4"
     @submit.prevent="submitForm()"

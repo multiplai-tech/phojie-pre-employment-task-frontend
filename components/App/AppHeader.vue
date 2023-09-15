@@ -6,18 +6,18 @@ const { user } = useAuthStore()
 
 <template>
   <header class="fixed left-0 right-0 top-0 z-10 grid grid-cols-6 h-18 border-b border-base bg-base px-4 shadow-sm space-x-1 lg:px-8 md:px-6">
+    <!-- left -->
     <nav class="col-span-2 flex items-center lg:space-x-20">
-      <!-- left -->
-      <div class="h-8">
+      <NLink to="/" class="h-8 shrink-0">
         <ClientOnly>
           <img :src=" colorMode.preference === 'dark' ? '/goteam-og-light.png' : '/goteam-og.png'" class="h-8">
         </ClientOnly>
-      </div>
+      </NLink>
 
       <!-- tabs -->
-      <div class="hidden shrink-0 flex-nowrap items-center lg:flex space-x-4">
+      <div class="hidden flex-nowrap items-center lg:flex space-x-4">
         <NNavLink label="Careers" :una="{ btn: 'text-$c-gray-500 font-normal !bg-transparent' }" />
-        <NNavLink label="Find your role" :una="{ btn: 'text-$c-gray-500 font-normal !bg-transparent' }" />
+        <NNavLink label="Find your role" :una="{ btn: 'whitespace-nowrap text-$c-gray-500 font-normal !bg-transparent' }" />
       </div>
     </nav>
 
