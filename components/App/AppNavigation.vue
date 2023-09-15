@@ -27,9 +27,10 @@ const links2 = [
     label: 'Notifications',
     badge: {
       label: '2',
-      badge: 'solid-error',
-      size: 'xs',
-      class: 'rounded-md p-1',
+      class: 'text-12px leading-none rounded-md py-1 !px-1.5 whitespace-normal',
+      una: {
+        badgeDefaultVariant: 'badge-solid-error',
+      },
     },
   },
   {
