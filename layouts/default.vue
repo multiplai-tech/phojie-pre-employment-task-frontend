@@ -5,7 +5,7 @@
 <template>
   <div class="min-h-screen flex flex-col bg-gray-100 dark:bg-gray-950">
     <!-- header -->
-    <AppHeader />
+    <AppHeader class="fixed left-0 right-0 top-0 z-10" />
 
     <div class="mx-auto mt-15 w-full flex items-start gap-x-8 px-4 py-10 container lg:px-8 sm:px-6">
       <!-- Sidebar -->
@@ -14,7 +14,7 @@
         <AppNavigation />
       </div>
 
-      <main class="flex-1 lg:ml-65">
+      <main class="flex-1 lg:ml-73">
         <!-- Main area -->
         <slot />
       </main>
