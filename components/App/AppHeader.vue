@@ -1,7 +1,5 @@
 <script setup lang="ts">
 const colorMode = useColorMode()
-
-const { user } = useAuthStore()
 </script>
 
 <template>
@@ -48,19 +46,20 @@ const { user } = useAuthStore()
     <!-- right -->
     <div class="flex">
       <div class="group flex cursor-pointer items-center space-x-2.5">
-        <div class="text-right text-xs leading-4">
-          <div class="font-bold">
-            {{ user?.name }}
+        <div class="text-right leading-4">
+          <div class="text-sm font-medium">
+            Reyven Beloy
           </div>
-          <div class="text-primary">
-            {{ user?.email }}
+          <div class="text-xs text-primary">
+            reyvenbeloy@gmail.com
           </div>
         </div>
 
         <NAvatar
           size="sm"
-          src="https://avatars.githubusercontent.com/u/33350692?v=4"
+          src="/images/profile.png"
           alt="Phojie Rengel"
+          avatar="solid-white"
         />
 
         <NIcon
