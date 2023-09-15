@@ -1,5 +1,6 @@
 <script setup lang="ts">
 definePageMeta({
+  layout: 'none',
   middleware: 'guest',
   title: 'Login',
   description: 'Login to your account',
