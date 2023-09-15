@@ -48,6 +48,7 @@ export default defineNuxtConfig({
 
   css: [
     '~/styles/base.css',
+    '~/styles/vars.css',
   ],
 
   colorMode: {
