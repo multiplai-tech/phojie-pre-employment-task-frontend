@@ -3,30 +3,27 @@
 </script>
 
 <template>
-  <div class="relative min-h-screen flex flex-col">
+  <div class="min-h-screen flex flex-col bg-gray-100 dark:bg-gray-950">
     <!-- header -->
     <AppHeader />
 
-    <!-- main -->
-    <div class="mx-auto max-w-7xl w-full flex items-start gap-x-8 px-4 py-10 lg:px-8 sm:px-6">
-      <aside class="sticky top-8 hidden w-44 shrink-0 lg:block">
-        <!-- Left column area -->
-      </aside>
+    <div class="mx-auto mt-15 w-full flex items-start gap-x-8 px-4 py-10 container lg:px-8 sm:px-6">
+      <!-- Sidebar -->
+      <div class="hidden shrink-0 pt-8 lg:fixed lg:z-50 lg:block lg:w-auto lg:overflow-y-auto lg:pb-4">
+        <!-- Navigation -->
+        <AppNavigation />
+      </div>
 
-      <main class="flex-1">
+      <main class="flex-1 lg:ml-65">
         <!-- Main area -->
         <slot />
       </main>
-
-      <aside class="sticky top-8 hidden w-96 shrink-0 xl:block">
-        <!-- Right column area -->
-      </aside>
     </div>
 
-    <!-- footer -->
+    <!-- Footer -->
     <LazyAppFooter />
 
-    <div class="absolute right-10 top-20">
+    <div class="fixed right-10 top-20 hidden rounded-lg p-1 lg:block">
       <div class="flex">
         <ColorMode />
         <NThemeSwitcher />
