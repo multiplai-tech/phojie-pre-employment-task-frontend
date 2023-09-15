@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="rounded-md bg-base shadow-sm">
+  <div class="border-base rounded-md bg-base shadow-sm dark:border">
     <h2 class="p-4 text-sm font-medium">
       Video Introduction
     </h2>

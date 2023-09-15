@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="rounded-md bg-base p-4 shadow-sm">
+  <div class="border-base rounded-md bg-base p-4 shadow-sm dark:border">
     <h2 class="text-sm font-medium text-$c-gray-600">
       Profile Completion
     </h2>
