@@ -1,18 +1,18 @@
 <template>
-  <div class="inline-flex">
+  <div class="relative grid grid-cols-12">
     <!-- profile image -->
-    <div class="border-r border-base p-7">
-      <div class="w-30 flex flex-shrink-0 items-center justify-center">
+    <div class="grid col-span-12 shrink-0 place-items-center border-base pt-7 lg:col-span-3 lg:border-r lg:p-7">
+      <div class="flex flex-shrink-0 items-center justify-center lg:w-30">
         <NAvatar
           avatar="solid-white"
           src="/images/profile.png"
-          class="h-30 w-auto bg-$c-muted"
+          class="h-50 w-50 bg-$c-muted lg:h-30 lg:h-30"
         />
       </div>
     </div>
 
     <!-- profile info -->
-    <div class="w-full flex flex-col p-7 pr-30 space-y-3">
+    <div class="col-span-12 w-full flex flex-col items-center py-4 pl-6 pr-5 lg:col-span-9 lg:items-start space-y-3 lg:py-7">
       <div class="leading-7">
         <span class="text-xl font-medium">
           Reyven S. Biloy
@@ -23,46 +23,46 @@
         </p>
       </div>
 
-      <div>
-        <NIcon name="i-heroicons-academic-cap-20-solid" class="mr-2 text-$c-gray-600" />
-        <span class="text-sm font-light text-$c-gray-500">
-          Bachelor of Science in Computer Science
-        </span>
-      </div>
-
-      <div class="w-full flex justify-between">
+      <div class="w-sm flex flex-col space-y-3">
         <div>
-          <NIcon name="i-heroicons-briefcase-20-solid" class="mr-2 text-$c-gray-600" />
+          <NIcon name="i-heroicons-academic-cap-20-solid" class="mr-2 text-$c-gray-600" />
           <span class="text-sm font-light text-$c-gray-500">
-            12 years
+            Bachelor of Science in Computer Science
           </span>
         </div>
 
-        <div>
-          <NIcon name="i-heroicons-calendar-20-solid" class="mr-2 text-$c-gray-600" />
-          <span class="text-sm font-light text-$c-gray-500">
-            Immediately
-          </span>
-        </div>
+        <div class="w-full flex justify-between">
+          <div>
+            <NIcon name="i-heroicons-briefcase-20-solid" class="mr-2 text-$c-gray-600" />
+            <span class="text-sm font-light text-$c-gray-500">
+              12 years
+            </span>
+          </div>
 
-        <div>
-          <NIcon name="i-heroicons-currency-dollar-20-solid" class="mr-2 text-$c-gray-600" />
-          <span class="text-sm font-light text-success">
-            35,0000
-          </span>
+          <div>
+            <NIcon name="i-heroicons-calendar-20-solid" class="mr-2 text-$c-gray-600" />
+            <span class="text-sm font-light text-$c-gray-500">
+              Immediately
+            </span>
+          </div>
+
+          <div>
+            <NIcon name="i-heroicons-currency-dollar-20-solid" class="mr-2 text-$c-gray-600" />
+            <span class="text-sm font-light text-success">
+              35,0000
+            </span>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- profile actions -->
-    <div class="py-7 pr-5">
-      <NButton
-        size="xs"
-        btn="text-gray"
-        class="opacity-70 hover:opacity-100"
-        icon
-        label="i-heroicons-pencil"
-      />
-    </div>
+    <NButton
+      size="xs"
+      btn="text-gray square"
+      class="absolute right-5 top-6 opacity-70 hover:opacity-100"
+      icon
+      label="i-heroicons-pencil"
+    />
   </div>
 </template>
