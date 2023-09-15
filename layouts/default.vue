@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+const { logout } = useAuthStore()
 </script>
 
 <template>
@@ -26,10 +26,13 @@
     <div class="fixed right-10 top-20 hidden rounded-lg p-1 xl:block">
       <div class="flex flex-col flex-nowrap space-y-2">
         <NThemeSwitcher class="!ml-0" />
-
-        <div>
-          <ColorMode />
-        </div>
+        <ColorMode />
+        <NButton
+          btn="ghost-error square"
+          icon
+          label="i-heroicons-arrow-left-on-rectangle-20-solid"
+          @click="logout()"
+        />
       </div>
     </div>
   </div>
