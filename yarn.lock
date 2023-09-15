@@ -1466,6 +1466,13 @@
   dependencies:
     "@iconify/types" "*"
 
+"@iconify-json/emojione@^1.1.7":
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/@iconify-json/emojione/-/emojione-1.1.7.tgz#5f1601b2551ad17557a074279850fa919d7af8e3"
+  integrity sha512-A7iYDLGmvg6VIAcNZugzbZc7klJlZAVy9ea3H6STfOJe3Nt0AltdehOl5ZhIuAHbtJDFqX/ZuEySOhxfnkdOyg==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify-json/fa6-solid@^1.1.15":
   version "1.1.15"
   resolved "https://registry.yarnpkg.com/@iconify-json/fa6-solid/-/fa6-solid-1.1.15.tgz#275e9d24a29420dfa07918b04c2a6f3628624202"
