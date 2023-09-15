@@ -58,7 +58,8 @@
     <div class="py-7 pr-5">
       <NButton
         size="xs"
-        btn="text-gray hover:text-primary"
+        btn="text-gray"
+        class="opacity-70 hover:opacity-100"
         icon
         label="i-heroicons-pencil"
       />
