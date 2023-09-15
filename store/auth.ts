@@ -15,15 +15,13 @@ export const useAuthStore = defineStore('auth', () => {
   async function logout() {
     await useFetchApi('/auth/logout', { method: 'POST' })
     user.value = null
+    useCookie('XSRF-TOKEN').value = ''
     navigateTo('/login')
   }
 
   async function fetchUser() {
-    const { data, error } = await useFetchApi('/user')
+    const { data } = await useFetchApi('/user')
     user.value = data.value as User
-
-    if (error.value)
-      logout()
   }
 
   async function login(credentials: LoginCredentials) {
