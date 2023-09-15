@@ -15,7 +15,7 @@ const links1 = [
 
 const links2 = [
   {
-    leading: 'i-heroicons-shopping-bag',
+    leading: 'i-heroicons-briefcase',
     label: 'Application Tracking',
   },
   {
