@@ -15,7 +15,7 @@ export const useAuthStore = defineStore('auth', () => {
   async function logout() {
     await useFetchApi('/auth/logout', { method: 'POST' })
     user.value = null
-    navigateTo('/auth/login')
+    navigateTo('/login')
   }
 
   async function fetchUser() {
@@ -23,7 +23,7 @@ export const useAuthStore = defineStore('auth', () => {
     user.value = data.value as User
 
     if (error.value)
-      $revoke()
+      logout()
   }
 
   async function login(credentials: LoginCredentials) {
@@ -53,13 +53,7 @@ export const useAuthStore = defineStore('auth', () => {
     return register
   }
 
-  function $revoke() {
-    // We want to revoke the cookie and the user
-    user.value = null
-    useCookie('XSRF-TOKEN').value = null
-  }
-
-  return { user, isLoggedIn, login, fetchUser, logout, register, $revoke }
+  return { user, isLoggedIn, login, fetchUser, logout, register }
 })
 
 if (import.meta.hot)
