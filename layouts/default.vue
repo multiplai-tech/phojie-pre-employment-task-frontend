@@ -23,10 +23,13 @@
     <!-- Footer -->
     <LazyAppFooter />
 
-    <div class="fixed right-10 top-20 hidden rounded-lg p-1 lg:block">
-      <div class="flex">
-        <ColorMode />
-        <NThemeSwitcher />
+    <div class="fixed right-10 top-20 hidden rounded-lg p-1 xl:block">
+      <div class="flex flex-col flex-nowrap space-y-2">
+        <NThemeSwitcher class="!ml-0" />
+
+        <div>
+          <ColorMode />
+        </div>
       </div>
     </div>
   </div>
