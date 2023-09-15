@@ -8,7 +8,7 @@ const { user } = useAuthStore()
   <header class="fixed left-0 right-0 top-0 z-10 grid grid-cols-6 h-18 border-b border-base bg-base px-4 shadow-sm space-x-1 lg:px-8 md:px-6">
     <!-- left -->
     <nav class="col-span-2 flex items-center lg:space-x-20">
-      <NLink to="/" class="h-8 shrink-0">
+      <NLink to="/" class="h-8 shrink-0 md:min-w-30">
         <ClientOnly>
           <img :src=" colorMode.preference === 'dark' ? '/goteam-og-light.png' : '/goteam-og.png'" class="h-8">
         </ClientOnly>
