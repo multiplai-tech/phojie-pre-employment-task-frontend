@@ -23,7 +23,7 @@ export default {
     {
       'nav-link': 'leading-6 justify-start px-4 gap-x-3 rounded-md !font-light',
     },
-    [/^nav-link-active-text(-(\S+))?$/, ([, , c = 'primary']) => `bg-gray-200/90 dark:bg-gray-900/90 text-${c}-600 dark:text-${c}-500`],
+    [/^nav-link-active-text(-(\S+))?$/, ([, , c = 'primary']) => `bg-gray-200/90 dark:bg-gray-900/90 !font-medium text-${c}-600 dark:text-${c}-500`],
     [/^nav-link-inactive-text(-(\S+))?$/, ([, , c = 'primary']) => `text-${c}-500 dark:text-${c}-400`],
     [/^nav-link-text(-(\S+))?$/, ([, , c = 'primary']) => `hover:bg-gray-200/90 hover:dark:bg-gray-900/90 hover:text-${c}-600 dark:hover:text-${c}-500`],
 
