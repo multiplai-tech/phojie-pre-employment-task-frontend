@@ -22,7 +22,7 @@ const { user } = useAuthStore()
     </nav>
 
     <!-- center -->
-    <div class="flex items-center">
+    <div class="flex items-center xl:min-w-xl">
       <NInput
         class="rounded-full py-2.5 pl-6 pr-25 text-md sm:pr-30 placeholder:font-light placeholder:text-$c-gray-400"
         placeholder="Type for job title or role"
