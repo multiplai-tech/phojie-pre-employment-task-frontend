@@ -64,7 +64,7 @@ const links2 = [
       }"
     />
 
-    <hr class="border-gray-200 dark:border-gray-800">
+    <hr class="border-gray-300 dark:border-gray-800">
 
     <NNavLink
       v-for="link in links2"
