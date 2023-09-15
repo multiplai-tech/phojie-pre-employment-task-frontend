@@ -13,10 +13,6 @@ export default defineNuxtConfig({
     typedPages: true,
   },
 
-  routeRules: {
-    '/': { prerender: true },
-  },
-
   modules: [
     '@una-ui/nuxt',
     '@pinia/nuxt',
