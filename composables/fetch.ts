@@ -21,7 +21,9 @@ export function useFetchApi<T>(path: string, options: UseFetchOptions<T> = {}) {
     }
   }
 
-  return useFetch(backendUrl + apiBase + path, {
+  path = path.startsWith('/') ? backendUrl + apiBase + path : path
+
+  return useFetch(path, {
     credentials: 'include',
     watch: false,
     ...options,
