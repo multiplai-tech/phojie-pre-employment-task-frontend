@@ -20,7 +20,7 @@ export default defineNuxtConfig({
   modules: [
     '@una-ui/nuxt',
     '@pinia/nuxt',
-    // '@vite-pwa/nuxt',
+    '@vite-pwa/nuxt',
     // nuxt-vitest, might be out of time for this one
 
     '~/modules/build-env', // used for CI/CD stuff
