@@ -39,9 +39,9 @@ definePageMeta({
       </div>
     </div>
 
-    <div class="grid grid-cols-10 gap-4">
+    <div class="grid grid-cols-12 gap-4">
       <!-- Profile -->
-      <div class="col-span-10 flex flex-col border-base rounded-md bg-base shadow-sm xl:col-span-7 divide-y divide-base dark:border">
+      <div class="col-span-12 flex flex-col border-base rounded-md bg-base shadow-sm xl:col-span-9 divide-y divide-base dark:border">
         <ProfileCover />
 
         <div class="flex flex-col divide-y divide-base">
@@ -54,8 +54,12 @@ definePageMeta({
       </div>
 
       <!-- Misc -->
-      <div class="col-span-10 h-20 flex flex-col rounded-md bg-base py-5 shadow-sm xl:col-span-3 space-y-4">
-        test
+      <div class="col-span-12 flex flex-col xl:col-span-3 space-y-4">
+        <ProfileVideoIntro />
+
+        <ProfileCompletion />
+
+        <ProfileCompletionIncomplete />
       </div>
     </div>
   </div>
