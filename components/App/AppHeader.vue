@@ -37,7 +37,7 @@ const { user } = useAuthStore()
             class="rounded-full py-1.6 shadow-none lg:px-4"
             leading="i-heroicons-magnifying-glass-20-solid"
           >
-            <span class="hidden text-xs font-light tracking-wide lg:block">
+            <span class="hidden text-xs font-light tracking-wide text-$c-gray-100 lg:block">
               Search
             </span>
           </NButton>
