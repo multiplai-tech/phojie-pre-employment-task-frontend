@@ -16,7 +16,7 @@ defineProps<ProfileDetailsProps>()
 <template>
   <div>
     <div class="flex justify-between pl-7 pr-5">
-      <h3 class="font-semibold leading-7 text-base text-gray-900">
+      <h3 class="font-medium leading-7 text-$c-gray-900 text-base">
         {{ title }}
       </h3>
 
