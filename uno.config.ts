@@ -1,4 +1,3 @@
-// For VSCode IntelliSense Purpose Only, this file is provided by uno-preset by default.
 import {
   presetAttributify,
   presetIcons,
