@@ -1,6 +1,6 @@
 :root {
-  --c-border: rgb(var(--una-gray-100));
-  --c-divider: rgb(var(--una-gray-100));
+  --c-border: rgb(var(--una-gray-200));
+  --c-divider: rgb(var(--una-gray-200));
   --c-ring: rgb(var(--una-gray-200));
 }
 
