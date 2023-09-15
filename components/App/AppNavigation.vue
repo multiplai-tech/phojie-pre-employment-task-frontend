@@ -33,7 +33,7 @@ const links2 = [
     },
   },
   {
-    leading: 'i-heroicons-bolt',
+    leading: 'i-carbon-activity',
     label: 'Activity Logs',
   },
   {
