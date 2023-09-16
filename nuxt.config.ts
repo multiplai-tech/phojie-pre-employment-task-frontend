@@ -48,10 +48,10 @@ export default defineNuxtConfig({
   ],
 
   colorMode: {
-    preference: 'dark',
+    preference: 'light',
   },
 
-  devtools: { enabled: true },
+  devtools: { enabled: false },
 
   pinia: {
     autoImports: [
