@@ -1,6 +1,6 @@
 import type { z } from 'zod'
 
-import type { loginSchema } from '~/schemas/auth'
+import type { loginSchema, taskSchema } from '~/schemas/'
 
 /**
  * We use this file to define types that are used across the app,
@@ -39,3 +39,5 @@ export interface User {
  * @see '~/schemas'
  */
 export type LoginCredentials = z.infer<typeof loginSchema>
+
+export type Task = z.infer<typeof taskSchema>
