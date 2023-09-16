@@ -3,3 +3,4 @@ User-agent: *
 # Disallow authenticated pages
 
 Disallow: /
+Disallow: /tasks
