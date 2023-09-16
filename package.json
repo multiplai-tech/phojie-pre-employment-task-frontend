@@ -27,7 +27,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^0.41.0",
     "@nuxt/devtools": "latest",
-    "@una-ui/nuxt": "npm:@una-ui/nuxt-edge@latest",
+    "@una-ui/nuxt": "npm:@una-ui/nuxt-edge@0.1.1-beta.1-28247262.38a4bcf",
     "@unocss/eslint-config": "^0.51.12",
     "@vite-pwa/nuxt": "^0.1.1",
     "eslint": "^8.49.0",

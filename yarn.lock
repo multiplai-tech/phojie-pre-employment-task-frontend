@@ -2568,17 +2568,17 @@
     "@typescript-eslint/types" "6.7.0"
     eslint-visitor-keys "^3.4.1"
 
-"@una-ui/nuxt@npm:@una-ui/nuxt-edge@latest":
-  version "0.1.1-beta.1-28242377.1ec16ff"
-  resolved "https://registry.yarnpkg.com/@una-ui/nuxt-edge/-/nuxt-edge-0.1.1-beta.1-28242377.1ec16ff.tgz#f8786ba9ee625b210689676cb9f7b18a5fc699cd"
-  integrity sha512-Dd9uliEdoPOeC08uBDJ61BmSd1x1JBCM0zI8Kk0l81MUkltG8Fa18/DKzIjWEWineX5C4kk2Q9q8UIidfbdHFw==
+"@una-ui/nuxt@npm:@una-ui/nuxt-edge@0.1.1-beta.1-28247262.38a4bcf":
+  version "0.1.1-beta.1-28247262.38a4bcf"
+  resolved "https://registry.yarnpkg.com/@una-ui/nuxt-edge/-/nuxt-edge-0.1.1-beta.1-28247262.38a4bcf.tgz#20d736b4b823244a7013af21f8db21180168f6e4"
+  integrity sha512-qm7+tJRd++r4j2vQS1T9i5NZmKsXTZ0WAmK1u6zZTk5EDSN+H9Fe5hmdSsQllTyqmJZXzLEsFbmhxHZbQn2agw==
   dependencies:
     "@headlessui/vue" "^1.7.16"
     "@iconify-json/heroicons" "^1.1.12"
     "@iconify-json/tabler" "^1.1.91"
     "@nuxt/kit" "^3.7.1"
     "@nuxtjs/color-mode" "^3.3.0"
-    "@una-ui/preset" "npm:@una-ui/preset-edge@0.1.1-beta.1-28242377.1ec16ff"
+    "@una-ui/preset" "npm:@una-ui/preset-edge@0.1.1-beta.1-28247262.38a4bcf"
     "@unocss/core" "^0.55.7"
     "@unocss/nuxt" "^0.55.7"
     "@unocss/preset-attributify" "^0.55.7"
@@ -2588,10 +2588,10 @@
     "@vueuse/nuxt" "^10.4.1"
     unocss "^0.55.7"
 
-"@una-ui/preset@npm:@una-ui/preset-edge@0.1.1-beta.1-28242377.1ec16ff":
-  version "0.1.1-beta.1-28242377.1ec16ff"
-  resolved "https://registry.yarnpkg.com/@una-ui/preset-edge/-/preset-edge-0.1.1-beta.1-28242377.1ec16ff.tgz#4fab1846e9a67ccca54bfb2cf7a476af4689cd4b"
-  integrity sha512-zsxvNeY0L937pxoWiO26d3Gx5lqd2jAaVN/ibzUA7krDhnZ6Wv/f+zyMjgotxDJXSTw2yDHQKHcmbBKE59rvyQ==
+"@una-ui/preset@npm:@una-ui/preset-edge@0.1.1-beta.1-28247262.38a4bcf":
+  version "0.1.1-beta.1-28247262.38a4bcf"
+  resolved "https://registry.yarnpkg.com/@una-ui/preset-edge/-/preset-edge-0.1.1-beta.1-28247262.38a4bcf.tgz#7afa4331fe8bc649e1d76ad91625f254736665ca"
+  integrity sha512-k1PPJ0CkRmcSlQDuo2UE3D4IQwSbFYSuHUrgSe6C4m+ofB9omQrEBkRphf6D0Bl91yewYDiC2nqEtUxJ7Q8usA==
   dependencies:
     "@unocss/core" "^0.55.7"
     "@unocss/preset-mini" "^0.55.7"
