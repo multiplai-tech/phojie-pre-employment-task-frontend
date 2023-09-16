@@ -9,7 +9,7 @@ definePageMeta({
 </script>
 
 <template>
-  <main class="mx-auto max-w-lg px-4 lg:px-8 sm:px-6">
+  <main class="mx-auto max-w-lg px-4 py-24 lg:px-8 sm:px-6">
     <div class="mx-auto max-w-xl rounded-md space-y-12">
       <div class="flex justify-center">
         <AppLogo class="h-35" />

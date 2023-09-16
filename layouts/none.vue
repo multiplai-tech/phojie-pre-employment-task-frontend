@@ -1,5 +1,3 @@
 <template>
-  <div class="py-24">
-    <slot />
-  </div>
+  <slot />
 </template>

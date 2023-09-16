@@ -12,11 +12,11 @@ const links1 = [
     leading: 'i-heroicons-play-circle',
     label: 'Video Script',
   },
-  {
-    leading: 'i-heroicons-rectangle-stack',
-    to: '/tasks',
-    label: 'Tasks',
-  },
+  // {
+  //   leading: 'i-heroicons-rectangle-stack',
+  //   to: '/tasks',
+  //   label: 'Tasks',
+  // },
 ]
 
 const links2 = [
