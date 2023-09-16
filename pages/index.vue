@@ -17,7 +17,7 @@ definePageMeta({
         </p>
       </div>
 
-      <div class="absolute right-0 px-6 -top-2">
+      <div class="absolute right-0 hidden px-6 -top-2 lg:block">
         <div class="relative flex items-center space-x-2">
           <div class="h-6 flex items-center">
             <input id="close" type="checkbox" class="h-4 w-4 rounded accent-primary opacity-60 checked:opacity-100">
