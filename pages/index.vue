@@ -1,6 +1,5 @@
 <script setup lang="ts">
 definePageMeta({
-  middleware: 'auth',
   title: 'Home',
 })
 </script>
