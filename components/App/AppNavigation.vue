@@ -7,9 +7,15 @@ const links1 = [
   {
     leading: 'i-heroicons-presentation-chart-line',
     label: 'Assessment',
-  }, {
+  },
+  {
     leading: 'i-heroicons-play-circle',
     label: 'Video Script',
+  },
+  {
+    leading: 'i-heroicons-rectangle-stack',
+    to: '/tasks',
+    label: 'Tasks',
   },
 ]
 
@@ -42,6 +48,8 @@ const links2 = [
     label: 'Settings',
   },
 ]
+
+const { currentRoute } = useRouter()
 </script>
 
 <template>
@@ -51,18 +59,16 @@ const links2 = [
       label="Profile"
       to="/"
       :una="{
-        btn: 'font-medium py-2.5',
+        btn: 'py-2.5',
       }"
-      trailing="i-heroicons-chevron-right-20-solid"
+      :trailing="currentRoute.fullPath === '/' ? 'i-heroicons-chevron-right-20-solid' : undefined"
     />
 
     <NNavLink
       v-for="link in links1"
       v-bind="link"
       :key="link.label"
-      :una="{
-        btn: 'text-$c-gray-500 font-normal',
-      }"
+      :trailing="currentRoute.fullPath === link.to ? 'i-heroicons-chevron-right-20-solid' : undefined"
     />
 
     <hr class="border-gray-300 dark:border-gray-800">
@@ -72,7 +78,6 @@ const links2 = [
       v-bind="link"
       :key="link.label"
       :una="{
-        btn: 'text-$c-gray-500 font-normal',
         btnLabel: '!w-auto',
       }"
     />
@@ -83,9 +88,9 @@ const links2 = [
       </span>
 
       <p class="opacity-90">
-        <NButton btn="text" class="p-0 text-xs font-normal" label="Terms of use" />
+        <NButton btn="text" class="p-0 text-xs" label="Terms of use" />
         <span class="mx-1 text-$c-gray-500">•</span>
-        <NButton btn="text" class="p-0 text-xs font-normal" label="Terms of use" />
+        <NButton btn="text" class="p-0 text-xs" label="Terms of use" />
       </p>
     </footer>
   </nav>
