@@ -24,7 +24,7 @@
         </p>
       </div>
 
-      <div class="w-sm flex flex-col space-y-3">
+      <div class="flex flex-col space-y-3">
         <div>
           <NIcon name="i-heroicons-academic-cap-20-solid" class="mr-2 text-$c-gray-600" />
           <span class="text-sm font-light text-$c-gray-500">
@@ -32,10 +32,10 @@
           </span>
         </div>
 
-        <div class="flex shrink justify-between gap-4 lg:gap-30">
+        <div class="flex shrink justify-between gap-2 lg:gap-30">
           <div>
             <NIcon name="i-heroicons-briefcase-20-solid" class="mr-2 text-$c-gray-600" />
-            <span class="text-sm font-light text-$c-gray-500">
+            <span class="whitespace-nowrap text-sm font-light text-$c-gray-500">
               12 years
             </span>
           </div>
