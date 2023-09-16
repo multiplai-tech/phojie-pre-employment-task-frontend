@@ -32,7 +32,7 @@
           </span>
         </div>
 
-        <div class="w-full flex justify-between">
+        <div class="flex shrink justify-between gap-4 lg:gap-30">
           <div>
             <NIcon name="i-heroicons-briefcase-20-solid" class="mr-2 text-$c-gray-600" />
             <span class="text-sm font-light text-$c-gray-500">

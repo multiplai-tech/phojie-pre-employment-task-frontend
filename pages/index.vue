@@ -7,7 +7,7 @@ definePageMeta({
 <template>
   <div class="flex flex-col space-y-4">
     <!-- card header -->
-    <div class="relative border border-base rounded-md bg-base py-5 shadow-sm space-y-5">
+    <div class="relative border border-base rounded-md bg-base py-6 shadow-sm space-y-5">
       <div class="px-6">
         <span class="text-xl font-medium">
           Welcome, Reyven!
