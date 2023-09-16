@@ -5,6 +5,7 @@
       <div class="flex flex-shrink-0 items-center justify-center lg:w-30">
         <NAvatar
           avatar="solid-white"
+          size="15"
           src="/images/profile.png"
           class="h-50 w-50 bg-$c-muted lg:h-30 lg:h-30"
         />
