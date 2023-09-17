@@ -1,6 +1,11 @@
 <script setup lang="ts">
 const links1 = [
   {
+    leading: 'i-heroicons-briefcase',
+    label: 'Profile',
+    to: '/',
+  },
+  {
     leading: 'i-heroicons-document-text',
     label: 'Resume / CV',
   },
@@ -54,16 +59,6 @@ const { currentRoute } = useRouter()
 
 <template>
   <nav class="w-70 flex flex-col px-4 space-y-2">
-    <NNavLink
-      leading="i-heroicons-user"
-      label="Profile"
-      to="/"
-      :una="{
-        btn: 'py-2.5',
-      }"
-      :trailing="currentRoute.fullPath === '/' ? 'i-heroicons-chevron-right-20-solid' : undefined"
-    />
-
     <NNavLink
       v-for="link in links1"
       v-bind="link"
