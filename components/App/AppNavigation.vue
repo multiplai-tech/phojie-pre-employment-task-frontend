@@ -78,7 +78,7 @@ const { currentRoute } = useRouter()
     />
 
     <footer>
-      <span class="text-xs text-$c-gray-500">
+      <span class="text-xs font-light text-$c-gray-500">
         Copyright 2018 - 2023. Allrights reserved
       </span>
 
