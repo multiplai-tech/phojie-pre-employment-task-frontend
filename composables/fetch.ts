@@ -37,6 +37,6 @@ export function useFetchApi<T>(path: string, options: UseFetchOptions<T> = {}) {
   })
 }
 
-export async function useFetchCsrf<T>(path?: string, options: UseFetchOptions<T> = {}) {
+export async function useFetchCsrf() {
   return await useFetch('/sanctum/csrf-cookie')
 }
