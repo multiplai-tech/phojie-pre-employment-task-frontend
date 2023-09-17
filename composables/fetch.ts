@@ -2,11 +2,8 @@ import type { UseFetchOptions } from 'nuxt/app'
 import { useRequestHeaders } from 'nuxt/app'
 
 export function useFetchApi<T>(path: string, options: UseFetchOptions<T> = {}) {
-  const { backendUrl, frontendUrl, apiBase } = useRuntimeConfig().public
-
   let headers: any = {
     accept: 'application/json',
-    referer: frontendUrl,
   }
   const token = useCookie('XSRF-TOKEN')
 
