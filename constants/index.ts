@@ -8,6 +8,6 @@ export const APP_INFO: AppInfo = {
   name: 'GoTeam - Offshore Outsourcing Company in the Philippines',
   shortName: 'GoTeam',
   description: 'GoTeam is an offshore outsourcing company in the Philippines that provides exceptional services to help businesses achieve their goals.',
-  ogImageLink: 'goteam-og.png',
+  ogImageLink: 'og.png',
   twitterSite: '@goteam',
 }
