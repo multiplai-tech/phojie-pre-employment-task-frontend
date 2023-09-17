@@ -33,20 +33,24 @@ export const useTaskStore = defineStore('task', () => {
   // get all tasks from our API, we can pass a query to filter
   async function fetchTasks(query?: object) {
     loading.value = true
-    const { pending, data } = await useFetchApi('/tasks', {
+
+    const { data } = await useFetchApi('/tasks', {
       query: { ...router.currentRoute.value.query, ...query },
       lazy: true,
     })
 
-    if (!pending.value)
-      tasks.value = data.value as Task[]
+    tasks.value = data.value as Task[]
     loading.value = false
   }
 
   // get task from our API by id
   async function fetchTask(id: string) {
+    loading.value = true
+
     const { data } = await useFetchApi(`/tasks/${id}`)
+
     task.value = data.value as Task
+    loading.value = false
   }
 
   // create task from our API
@@ -72,6 +76,7 @@ export const useTaskStore = defineStore('task', () => {
   // update task status from our API
   async function updateTaskStatus(id: string, status: string) {
     loading.value = true
+
     await useFetchApi(`/tasks/${id}`, {
       method: 'PUT',
       body: {
@@ -90,7 +95,6 @@ export const useTaskStore = defineStore('task', () => {
     })
 
     await fetchTasks()
-    loading.value = false
   }
 
   /**
