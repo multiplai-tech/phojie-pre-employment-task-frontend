@@ -4,7 +4,7 @@
 </p>
 
 <p align='center'>
-This app is a redesign of the GoTeam App.
+This project is a redesign of the GoTeam App.
 </p>
 
 <br>
