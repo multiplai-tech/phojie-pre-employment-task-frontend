@@ -1,4 +1,5 @@
 import { pwa } from './config/pwa'
+import { security } from './config/security'
 
 export default defineNuxtConfig({
   experimental: {
@@ -62,4 +63,7 @@ export default defineNuxtConfig({
   },
 
   pwa,
+  // eslint-disable-next-line @typescript-eslint/prefer-ts-expect-error
+  // @ts-ignore nuxt-security is conditional
+  security,
 })
