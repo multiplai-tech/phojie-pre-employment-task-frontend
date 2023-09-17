@@ -88,9 +88,9 @@ const { currentRoute } = useRouter()
 
       <p>
         <!-- we can easily add `to=#` here -->
-        <NButton btn="text" class="p-0 text-xs font-light" label="Terms of use" />
+        <NButton btn="text" class="p-0 text-xs font-light" label="Terms of Use" />
         <span class="mx-1 text-$c-gray-500">•</span>
-        <NButton btn="text" class="p-0 text-xs font-light" label="Terms of use" />
+        <NButton btn="text" class="p-0 text-xs font-light" label="Privacy Policy" />
       </p>
     </footer>
   </nav>
