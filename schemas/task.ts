@@ -1,12 +1,5 @@
 import { z } from 'zod'
 
-// Custom validation function to check if the date is today or in the future
-function isTodayOrFuture(value: string) {
-  const dueDate = new Date(value).toISOString().slice(0, 10)
-  const currentDate = new Date().toISOString().slice(0, 10)
-  return dueDate >= currentDate
-}
-
 export const taskSchema = z.object({
   id: z.string().readonly().optional(),
   title: z.string()
