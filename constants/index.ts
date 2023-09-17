@@ -1,7 +1,7 @@
 import type { AppInfo } from '~/types'
 
 /**
- * I prefer to keep the app info in a separate file so that it's easier to update.
+ * I prefer to keep the app info in a separate file so that it's easier to config and manage in the future.
  * This is also useful for displaying the app info across the app.
  */
 export const APP_INFO: AppInfo = {
