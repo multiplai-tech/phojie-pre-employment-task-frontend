@@ -61,7 +61,7 @@ export default defineNuxtConfig({
   imports: {
     dirs: [
       // We need to import the store directory so that Pinia can auto-import
-      './store/*.ts',
+      './stores/*.ts',
     ],
     injectAtEnd: true,
   },
