@@ -1,2 +1,2 @@
-export { taskSchema } from './task'
-export { loginSchema } from './auth'
+export * from './task'
+export * from './auth'

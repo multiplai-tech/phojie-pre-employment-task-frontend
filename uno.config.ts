@@ -21,6 +21,8 @@ export default {
      * @param root0."2"
      */
     {
+      'indicator-center-left': 'left-0 !top-1.8 !ml-1.2em',
+
       'nav-link': 'leading-6 justify-start px-4 gap-x-3 text-$c-gray-600 rounded-md font-light',
     },
     [/^nav-link-active-text(-(\S+))?$/, ([, , c = 'primary']) => `bg-gray-200/70 dark:bg-gray-900/70 font-medium text-${c}-600 dark:text-${c}-500`],

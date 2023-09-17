@@ -1,14 +1,6 @@
 import { pwa } from './config/pwa'
 
 export default defineNuxtConfig({
-  typescript: {
-    tsConfig: {
-      compilerOptions: {
-        target: 3.3,
-      },
-    },
-  },
-
   experimental: {
     typedPages: true,
   },
@@ -21,6 +13,11 @@ export default defineNuxtConfig({
 
     '~/modules/build-env', // used for CI/CD stuff
   ],
+
+  routeRules: {
+    '/': { prerender: true },
+    '/tasks/**': { ssr: false },
+  },
 
   runtimeConfig: {
     public: {
@@ -48,7 +45,7 @@ export default defineNuxtConfig({
   ],
 
   colorMode: {
-    preference: 'light',
+    preference: 'dark',
   },
 
   devtools: { enabled: false },
@@ -57,6 +54,7 @@ export default defineNuxtConfig({
     autoImports: [
       'defineStore',
       'acceptHMRUpdate',
+      'storeToRefs',
     ],
   },
 

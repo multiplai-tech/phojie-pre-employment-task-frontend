@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import type { LoginCredentials } from '~/types'
-import { loginSchema } from '~/schemas/auth'
+import type { SignupCredentials } from '~/types'
+import { signupSchema } from '~/schemas'
 
-const { login } = useAuthStore()
+const { signup } = useAuthStore()
 
 const loading = ref(false)
 
-const form = ref<LoginCredentials>({
-  email: 'phojrengel@gmail.com',
-  password: 'password',
+const form = ref<SignupCredentials>({
+  name: '',
+  email: '',
+  password: '',
 })
-const { validateField, validateForm, focusInput, errors } = useValidation(form, loginSchema)
+const { validateField, validateForm, errors } = useValidation(form, signupSchema)
 
 const isPasswordVisible = ref(false)
 
@@ -24,12 +25,9 @@ async function submitForm() {
   // trigger loading state
   loading.value = true
 
-  const { error } = await login(form.value)
-  if (error.value) {
+  const { error } = await signup(form.value)
+  if (error.value)
     errors.value = { ...errors.value, server: error.value.data }
-    form.value.password = ''
-    focusInput('password')
-  }
 
   loading.value = false
 
@@ -51,6 +49,21 @@ async function submitForm() {
       icon
       class="mb-2"
     />
+
+    <NFormGroup
+      id="name"
+      label="Name"
+      :status="errors?.name ? 'error' : undefined"
+      :message="errors?.name?.[0]"
+    >
+      <NInput
+        v-model="form.name"
+        placeholder="Phojie Rengel"
+        class="bg-base"
+        :disabled="loading"
+        @blur="validateField('name')"
+      />
+    </NFormGroup>
 
     <NFormGroup
       id="email"
@@ -92,7 +105,7 @@ async function submitForm() {
       <NButton
         class="mt-2"
         type="submit"
-        label="Login"
+        label="Signup"
         :loading="loading"
       />
     </div>

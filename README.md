@@ -34,6 +34,8 @@ This app is a redesign of the GoTeam App.
 
 - 📲 [PWA](https://github.com/vite-pwa/nuxt) with offline support and auto update behavior.
 
+- 🔐 Nuxt Auth doesn't work with Nuxt 3 yet, so I built my own from scratch.
+
 ## Plugins
 
 ### Nuxt Modules

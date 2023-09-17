@@ -38,7 +38,7 @@
     "vitest": "^0.33.0",
     "vue-tsc": "^1.8.10"
   },
-  "resolutions": {
+  "overrides": {
     "vue": "latest"
   },
   "simple-git-hooks": {

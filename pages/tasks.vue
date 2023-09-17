@@ -1,15 +1,47 @@
 <script setup lang="ts">
+import { watchDebounced } from '@vueuse/core'
+
 definePageMeta({
   middleware: 'auth',
   title: 'Tasks',
 })
 
-const { tasks } = useTask()
+const router = useRouter()
+const store = useTaskStore()
+const { loading, modal } = storeToRefs(store)
+const search = ref('')
+
+// watch the search ref and fetch the tasks when it changes
+watchDebounced(
+  search,
+  () => {
+    // fetch the tasks
+    store.fetchTasks({
+      search: search.value,
+    })
+
+    // update the query string to sync the search value
+    router.push({
+      query: {
+        search: search.value,
+      },
+    })
+  },
+  { debounce: 500, immediate: true },
+)
+
+// we need to set the search value from the query to the search ref
+onMounted(() => {
+  const { search: searchQuery } = router.currentRoute.value.query
+
+  if (searchQuery)
+    search.value = searchQuery.toString()
+})
 </script>
 
 <template>
-  <div class="">
-    <div class="border-base rounded-md bg-base px-4 py-7 shadow-sm sm:flex sm:items-center dark:border lg:px-8">
+  <div class="min-h-screen">
+    <div class="flex flex-col justify-between gap-5 border-base rounded-md bg-base px-4 py-7 shadow-sm dark:border lg:px-8">
       <div class="sm:flex-auto">
         <h1 class="font-semibold leading-6 text-$c-gray-900 text-base">
           Tasks
@@ -18,63 +50,43 @@ const { tasks } = useTask()
           A list of all the tasks that you need to accomplish.
         </p>
       </div>
-      <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-        <NButton
-          btn="solid"
-          label="Create Task"
-          trailing="i-heroicons-plus-circle-20-solid"
-        />
-      </div>
-    </div>
-    <div class="mt-3 flow-root border-base rounded-md bg-base px-4 shadow-sm dark:border lg:px-8">
-      <div class="overflow-x-auto -mx-4 -my-2 lg:-mx-8 sm:-mx-6">
-        <div class="inline-block min-w-full py-2 align-middle lg:px-8 sm:px-6">
-          <table class="min-w-full divide-y divide-base">
-            <thead>
-              <tr>
-                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-$c-gray-900 sm:pl-0">
-                  Title
-                </th>
-                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-$c-gray-900">
-                  Description
-                </th>
-                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-$c-gray-900">
-                  Due date
-                </th>
-                <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-$c-gray-900">
-                  Status
-                </th>
-                <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
-                  <span class="sr-only">Edit</span>
-                </th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-gray-200">
-              <tr v-for="task in tasks" :key="task.id">
-                <td class="whitespace-nowrap py-5 pl-4 pr-3 text-sm sm:pl-0">
-                  <div class="text-$c-gray-900">
-                    {{ task.title }}
-                  </div>
-                </td>
-                <td class="whitespace-nowrap px-3 py-5 text-sm text-$c-gray-500">
-                  <div class="text-$c-gray-900">
-                    {{ task.description }}
-                  </div>
-                </td>
-                <td class="whitespace-nowrap px-3 py-5 text-sm text-$c-gray-500">
-                  {{ task.dueDate }}
-                </td>
-                <td class="whitespace-nowrap px-3 py-5 text-sm text-$c-gray-500">
-                  <NBadge label="Active" />
-                </td>
-                <td class="relative whitespace-nowrap py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                  <a href="#" class="text-primary hover:text-indigo-900">Edit</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+      <div class="mt-4 gap-4 sm:mt-0">
+        <div class="flex flex-col justify-between gap-2 lg:flex-row">
+          <!-- search -->
+          <NInput
+            v-model="search"
+            placeholder="Search tasks"
+            leading="i-heroicons-magnifying-glass-solid"
+          />
+
+          <!-- reload -->
+          <div class="flex justify-between space-x-2">
+            <NButton
+              btn="solid-gray"
+              :loading="loading"
+              :label="loading ? '' : 'Reload'"
+              :icon="loading"
+              trailing="i-heroicons-refresh-20-solid"
+              @click="store.fetchTasks({ search })"
+            />
+
+            <NButton
+              btn="solid"
+              label="Create Task"
+              trailing="i-heroicons-plus-circle-20-solid"
+              @click="store.createTask()"
+            />
+          </div>
         </div>
       </div>
     </div>
+
+    <div class="mt-3 flow-root border-base rounded-md bg-base px-4 dark:border lg:px-8">
+      <TaskTable />
+    </div>
+
+    <Modal :is-open="modal.isOpen" title="Task Form" @closeModal="store.closeModal()">
+      <FormTask @closeModal="store.closeModal()" />
+    </Modal>
   </div>
 </template>

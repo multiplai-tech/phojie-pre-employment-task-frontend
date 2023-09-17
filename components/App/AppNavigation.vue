@@ -12,11 +12,11 @@ const links1 = [
     leading: 'i-heroicons-play-circle',
     label: 'Video Script',
   },
-  // {
-  //   leading: 'i-heroicons-rectangle-stack',
-  //   to: '/tasks',
-  //   label: 'Tasks',
-  // },
+  {
+    leading: 'i-heroicons-rectangle-stack',
+    to: '/tasks',
+    label: 'Tasks',
+  },
 ]
 
 const links2 = [
@@ -68,7 +68,7 @@ const { currentRoute } = useRouter()
       v-for="link in links1"
       v-bind="link"
       :key="link.label"
-      :trailing="currentRoute.fullPath === link.to ? 'i-heroicons-chevron-right-20-solid' : undefined"
+      :trailing="currentRoute.matched[0].path === link.to ? 'i-heroicons-chevron-right-20-solid' : undefined"
     />
 
     <hr class="border-gray-300 dark:border-gray-800">

@@ -1,11 +1,4 @@
-import type { LoginCredentials, User } from '~/types/index'
-
-interface RegistrationInfo {
-  name: string
-  email: string
-  password: string
-  password_confirmation: string
-}
+import type { LoginCredentials, SignupCredentials, User } from '~/types/index'
 
 export const useAuthStore = defineStore('auth', () => {
   const user = useCookie<User | null>('user')
@@ -42,22 +35,17 @@ export const useAuthStore = defineStore('auth', () => {
     return login
   }
 
-  async function register(info: RegistrationInfo) {
+  async function signup(info: SignupCredentials) {
     await useFetchCsrf()
 
-    const register = await useFetchApi('/auth/register', {
+    const signup = await useFetchApi('/auth/register', {
       method: 'POST',
       body: info,
     })
 
-    if (register.error.value)
-      await fetchUser()
-
-    return register
+    await fetchUser()
+    return signup
   }
 
-  return { user, authenticated, login, fetchUser, logout, register }
+  return { user, authenticated, login, fetchUser, logout, signup }
 })
-
-if (import.meta.hot)
-  import.meta.hot.accept(acceptHMRUpdate(useAuthStore, import.meta.hot))
