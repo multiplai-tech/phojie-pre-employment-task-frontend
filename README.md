@@ -54,7 +54,7 @@ This project is a redesign of the GoTeam App.
 
 ### Code Formatting
 
-  - I use only [ESLint](https://eslint.org/) for code formatting. (Not fan of Prettier).
+  - I use only [ESLint](https://eslint.org/) for code formatting. (Not a fan of Prettier).
 
 ### Commits
 
