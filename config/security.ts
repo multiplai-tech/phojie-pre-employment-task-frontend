@@ -1,3 +1,7 @@
+/**
+ * Security Configuration
+ * @description :: Server security configuration 🚧
+ */
 export const security = {
   headers: {
     crossOriginEmbedderPolicy: false,

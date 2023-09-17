@@ -15,7 +15,6 @@ export default defineNuxtConfig({
   ],
 
   routeRules: {
-    // '/': { prerender: true },
     '/tasks/**': { ssr: false },
     // eslint-disable-next-line n/prefer-global/process
     '/api/**': { proxy: { to: `${process.env.NUXT_PUBLIC_API_URL}/api/v1/**` }, cors: true },
