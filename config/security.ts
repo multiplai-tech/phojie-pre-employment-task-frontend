@@ -1,6 +1,6 @@
 /**
- * Security Configuration
- * @description :: Server security configuration 🚧
+ * Server security configuration 🚧
+ * we use helmet to secure our server requests
  */
 export const security = {
   headers: {
