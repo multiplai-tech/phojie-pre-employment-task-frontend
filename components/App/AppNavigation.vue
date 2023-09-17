@@ -82,11 +82,11 @@ const { currentRoute } = useRouter()
         Copyright 2018 - 2023. Allrights reserved
       </span>
 
-      <p class="font-light">
+      <p>
         <!-- we can easily add `to=#` here -->
-        <NButton btn="text" class="p-0 text-xs" label="Terms of use" />
+        <NButton btn="text" class="p-0 text-xs font-light" label="Terms of use" />
         <span class="mx-1 text-$c-gray-500">•</span>
-        <NButton btn="text" class="p-0 text-xs" label="Terms of use" />
+        <NButton btn="text" class="p-0 text-xs font-light" label="Terms of use" />
       </p>
     </footer>
   </nav>
