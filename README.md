@@ -48,7 +48,7 @@ This app is a redesign of the GoTeam App.
 
 ## Development
 
-## Code Formatting
+### Code Formatting
 
   - I use only [ESLint](https://eslint.org/) for code formatting. (Not fan of Prettier).
 
