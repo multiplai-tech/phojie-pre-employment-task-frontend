@@ -8,7 +8,7 @@ const { tasks, loading } = storeToRefs(store)
 function toggleStatus(task: Task) {
   const { id, status } = task
 
-  if (!id)
+  if (!id || loading.value)
     return
 
   if (status === 'complete')
