@@ -83,6 +83,7 @@ const { currentRoute } = useRouter()
       </span>
 
       <p class="opacity-90">
+        <!-- we can easily add `to=#` here -->
         <NButton btn="text" class="p-0 text-xs" label="Terms of use" />
         <span class="mx-1 text-$c-gray-500">•</span>
         <NButton btn="text" class="p-0 text-xs" label="Terms of use" />
