@@ -21,8 +21,5 @@ export const security = {
       'upgrade-insecure-requests': true,
     },
   },
-  rateLimiter: {
-    tokensPerInterval: 150,
-    interval: 'hour',
-  },
+  rateLimiter: false,
 }
