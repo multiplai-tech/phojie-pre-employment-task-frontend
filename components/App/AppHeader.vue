@@ -8,7 +8,10 @@ const colorMode = useColorMode()
     <nav class="flex flex-shrink-0 items-center lg:space-x-20">
       <NLink to="/" class="h-8 shrink-0">
         <ClientOnly>
-          <img :src=" colorMode.preference === 'dark' ? '/goteam-og-light.png' : '/goteam-og.png'" class="h-8">
+          <img
+            alt="Logo"
+            :src=" colorMode.preference === 'dark' ? '/goteam-og-light.png' : '/goteam-og.png'" class="h-8"
+          >
         </ClientOnly>
       </NLink>
 

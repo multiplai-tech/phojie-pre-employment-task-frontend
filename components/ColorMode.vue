@@ -8,6 +8,7 @@ function toggleDark() {
 <template>
   <NButton
     btn="ghost-gray square"
+    aria-label="Toggle dark mode"
     @click="toggleDark()"
   >
     <NIcon
