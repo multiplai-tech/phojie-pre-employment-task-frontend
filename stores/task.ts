@@ -36,7 +36,6 @@ export const useTaskStore = defineStore('task', () => {
 
     const { data } = await useFetchApi('/tasks', {
       query: { ...router.currentRoute.value.query, ...query },
-      lazy: true,
     })
 
     tasks.value = data.value as Task[]
