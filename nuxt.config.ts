@@ -22,14 +22,6 @@ export default defineNuxtConfig({
     '/sanctum/csrf-cookie': { proxy: { to: `${process.env.NUXT_PUBLIC_API_URL}/sanctum/csrf-cookie` }, cors: true },
   },
 
-  runtimeConfig: {
-    public: {
-      frontendUrl: '',
-      backendUrl: '',
-      apiBase: '',
-    },
-  },
-
   app: {
     keepalive: true,
     head: {
