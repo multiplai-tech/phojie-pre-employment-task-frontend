@@ -21,7 +21,7 @@ export function useFetchApi<T>(path: string, options: UseFetchOptions<T> = {}) {
     }
   }
 
-  path = path.startsWith('/') ? backendUrl + apiBase + path : path
+  path = path.startsWith('/') ? `/api${path}` : path
 
   return useFetch(path, {
     credentials: 'include',
@@ -35,9 +35,5 @@ export function useFetchApi<T>(path: string, options: UseFetchOptions<T> = {}) {
 }
 
 export async function useFetchCsrf<T>(path?: string, options: UseFetchOptions<T> = {}) {
-  const { backendUrl } = useRuntimeConfig().public
-
-  path = path || `${backendUrl}/sanctum/csrf-cookie`
-
-  return await useFetchApi(path, options)
+  return await useFetch('/sanctum/csrf-cookie')
 }
