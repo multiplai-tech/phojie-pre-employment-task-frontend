@@ -70,6 +70,7 @@ export const useTaskStore = defineStore('task', () => {
 
   // update task status from our API
   async function updateTaskStatus(id: string, status: string) {
+    loading.value = true
     await useFetchApi(`/tasks/${id}`, {
       method: 'PUT',
       body: {
