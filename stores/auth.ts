@@ -1,5 +1,10 @@
 import type { LoginCredentials, SignupCredentials, User } from '~/types/index'
 
+/**
+ * 🚧 This is a work in progress, we can improve this store later
+ * This is our Auth Store, we can use this store to manage our user authentication and data
+ */
+
 export const useAuthStore = defineStore('auth', () => {
   const user = useCookie<User | null>('user')
 
