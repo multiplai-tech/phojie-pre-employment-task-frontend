@@ -24,15 +24,13 @@ This app is a redesign of the GoTeam App.
 
 ## Features
 
-- 💚 [Nuxt 3](https://nuxt.com/) - SSR, ESR, File-based routing, components auto importing, modules, etc.
+- 💛 [UnaUI](https://github.com/una-ui/una-ui) - The atomic UI framework for Nuxt powered by Unocss Engine.
 
-- 🎨 [UnaUI](https://github.com/una-ui/una-ui) - The atomic UI framework for Nuxt powered by Unocss Engine.
+- 🎨 Theming system with Dark Mode support.
 
 - 🔥 The `<script setup>` syntax.
 
-- 🍍 [State Management via Pinia](https://github.com/vuejs/pinia).
-
-- 🦾 TypeScript, of course.
+- 🦾 TypeScript.
 
 - 📲 [PWA](https://github.com/vite-pwa/nuxt) with offline support and auto update behavior.
 
