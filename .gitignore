@@ -25,3 +25,5 @@ logs
 
 .eslintcache
 .DS_Store
+
+tester/**
