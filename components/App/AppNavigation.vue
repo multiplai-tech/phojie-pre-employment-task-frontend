@@ -1,4 +1,8 @@
 <script setup lang="ts">
+/**
+ * We can extract the links to a composable in the future
+ * to separate the logic from the template
+ */
 const links1 = [
   {
     leading: 'i-heroicons-briefcase',
