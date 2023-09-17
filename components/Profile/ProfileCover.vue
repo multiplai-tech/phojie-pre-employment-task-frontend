@@ -7,7 +7,7 @@
           avatar="solid-white"
           size="15"
           src="/images/profile.png"
-          alt="Avatar"
+          alt="Reyven Biloy"
           class="h-50 w-50 bg-$c-muted lg:h-30 lg:h-30"
         />
       </div>
