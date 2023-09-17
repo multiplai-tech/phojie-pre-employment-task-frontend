@@ -39,6 +39,7 @@ This app is a redesign of the GoTeam App.
 ## Plugins
 
 ### Nuxt Modules
+
 - [UnaUI](https://github.com/una-ui/una-ui) - A nuxt module for [UnaUI](https://unaui.com/) framework
 - [VueUse](https://github.com/vueuse/vueuse) - collection of useful composition APIs.
 - [ColorMode](https://github.com/nuxt-modules/color-mode) - dark and Light mode with auto detection made easy with Nuxt.
@@ -46,6 +47,15 @@ This app is a redesign of the GoTeam App.
 - [VitePWA](https://github.com/vite-pwa/nuxt) - zero-config PWA Plugin for Nuxt 3.
 
 ## Development
+
+## Code Formatting
+
+  - I use only [ESLint](https://eslint.org/) for code formatting. (Not fan of Prettier).
+
+### Commits
+
+  - I use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) for commit messages.
+  - I use Lint Staged and Simple Git Hooks to lint and format code before commiting. (An alternative to this is to use Husky and Lint Staged.
 
 ### Dev tools
 
