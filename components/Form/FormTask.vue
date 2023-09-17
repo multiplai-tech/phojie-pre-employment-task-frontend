@@ -13,6 +13,8 @@ async function submitForm() {
   if (!isValid)
     return
 
+  loading.value = true
+
   const { error } = await (modal.value.status === 'create'
     ? storeTask(form.value)
     : updateTask(form.value))
