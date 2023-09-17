@@ -89,6 +89,14 @@ This app is a redesign of the GoTeam App.
   cp .env.example .env
 ```
 
+4. Start the development server
+
+```bash
+  yarn dev
+```
+
+5. Visit [http://localhost:3000](http://localhost:3000)
+
 ### 🧪 Running tests
 
 🚧 **Note:** Tests are still in development. 🚧
