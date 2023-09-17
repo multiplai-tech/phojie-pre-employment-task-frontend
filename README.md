@@ -26,6 +26,8 @@ This app is a redesign of the GoTeam App.
 
 - 💛 [UnaUI](https://github.com/una-ui/una-ui) - The atomic UI framework for Nuxt powered by Unocss Engine.
 
+- 💚 [Nuxt 3](https://v3.nuxtjs.org/) - Latest version of Nuxt.
+
 - 🎨 Theming system with Dark Mode support.
 
 - 🔥 The `<script setup>` syntax.
