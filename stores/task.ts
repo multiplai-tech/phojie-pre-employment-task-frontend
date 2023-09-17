@@ -95,7 +95,7 @@ export const useTaskStore = defineStore('task', () => {
 
   /**
    * List of all methods from our frontend
-   * we can use this methos to manipulate components
+   * we can use this methos to manipulate task components without losing reactivity
    */
 
   async function createTask() {
