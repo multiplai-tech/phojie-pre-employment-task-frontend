@@ -5,7 +5,7 @@
  */
 const links1 = [
   {
-    leading: 'i-heroicons-briefcase',
+    leading: 'i-heroicons-user',
     label: 'Profile',
     to: '/',
   },
