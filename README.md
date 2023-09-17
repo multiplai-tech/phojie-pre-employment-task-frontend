@@ -69,6 +69,7 @@ This project is a redesign of the GoTeam App.
   - [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) - Vue 3 `<script setup>` IDE support
   - [Iconify IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.iconify) - Icon inline display and autocomplete
   - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+  - [Unocss IntelliSense](https://marketplace.visualstudio.com/items?itemName=antfu.unocss) - Unocss class autocomplete
 
 ### Installation
 
