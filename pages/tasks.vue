@@ -86,7 +86,7 @@ onMounted(() => {
     </div>
 
     <Modal :is-open="modal.isOpen" title="Task Form" @closeModal="store.closeModal()">
-      <FormTask @closeModal="store.closeModal()" />
+      <TaskForm @closeModal="store.closeModal()" />
     </Modal>
   </div>
 </template>
