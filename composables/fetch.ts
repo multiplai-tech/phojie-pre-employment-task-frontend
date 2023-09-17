@@ -1,6 +1,12 @@
 import type { UseFetchOptions } from 'nuxt/app'
 import { useRequestHeaders } from 'nuxt/app'
 
+/**
+ * We use this to fetch data from our API instead of using default fetch,
+ * This fetch is made specifically for our Laravel API, so we can use it to fetch data from our API
+ * without having to worry about the CSRF token, and other stuff.
+ */
+
 export function useFetchApi<T>(path: string, options: UseFetchOptions<T> = {}) {
   let headers: any = {
     accept: 'application/json',

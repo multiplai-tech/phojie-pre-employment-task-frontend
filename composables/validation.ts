@@ -1,5 +1,13 @@
 import { z } from 'zod'
 
+/**
+ * This is a simple validation composable, it uses zod for validation,
+ * instead of relying modules like vee-validate and vuelidate,
+ * we can use zod to validate our forms, and it's much simpler.
+ *
+ * We can improve this composable later, but for now, this is enough 🚀
+ */
+
 // schema: any for now, but should be zod schema
 export function useValidation(form: Record<string, any>, schema: any) {
   type Form = z.infer<typeof schema>
