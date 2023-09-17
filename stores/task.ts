@@ -1,5 +1,6 @@
 import type { Task } from '~/types'
 
+// we can extract this to a global interface
 interface Modal {
   isOpen: boolean
   status: 'create' | 'edit'
