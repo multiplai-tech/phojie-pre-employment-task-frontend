@@ -12,14 +12,39 @@ jobs:
   ci:
     permissions:
       id-token: write
-    runs-on: ubuntu-latest
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node_version: [16, 18]
+        include:
+          - os: macos-latest
+            node_version: 18
+          - os: windows-latest
+            node_version: 18
+      fail-fast: false
+
     steps:
+      - name: Set git to use LF
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.eol lf
+
       - uses: actions/checkout@v3
-      - run: corepack enable
-      - uses: actions/setup-node@v3
+
+      - name: Install yarn
+        uses: yarn/action-setup@v2
+
+      - name: Set node ${{ matrix.node_version }}
+        uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: ${{ matrix.node_version }}
           cache: yarn
+
+      - run: corepack enable
+
       - run: yarn install
       - run: yarn lint
       - run: yarn build
