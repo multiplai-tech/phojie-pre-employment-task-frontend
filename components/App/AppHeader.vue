@@ -51,8 +51,8 @@ const colorMode = useColorMode()
     <!-- right -->
     <div class="flex">
       <div class="group flex cursor-pointer items-center space-x-2.5">
-        <div class="text-right leading-4">
-          <div class="text-sm font-medium">
+        <div class="text-right">
+          <div class="text-sm font-medium leading-1">
             Reyven Beloy
           </div>
           <div class="text-xs text-primary">
@@ -63,7 +63,7 @@ const colorMode = useColorMode()
         <NAvatar
           size="sm"
           src="/images/profile.png"
-          alt="Phojie Rengel"
+          alt="Reyven Beloy"
           avatar="solid-white"
         />
 
