@@ -33,7 +33,7 @@ export const useAuthStore = defineStore('auth', () => {
       body: credentials,
     })
 
-    if (login.error.value)
+    if (!login.error.value)
       await fetchUser()
 
     return login
@@ -47,7 +47,7 @@ export const useAuthStore = defineStore('auth', () => {
       body: info,
     })
 
-    if (signup.error.value)
+    if (!signup.error.value)
       await fetchUser()
 
     return signup
