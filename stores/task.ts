@@ -27,7 +27,6 @@ export const useTaskStore = defineStore('task', () => {
   /**
    * List of all fetchTask methods rom our Backend(API),
    * we can use this methods to fetch data from our API
-   *
    */
 
   // get all tasks from our API, we can pass a query to filter
