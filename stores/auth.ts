@@ -21,10 +21,8 @@ export const useAuthStore = defineStore('auth', () => {
     const { data, error } = await useFetchApi('/user')
     user.value = data.value as User
 
-    if (error.value) {
-      user.value = null
-      useCookie('XSRF-TOKEN').value = ''
-    }
+    if (error.value)
+      $revoke()
   }
 
   async function login(credentials: LoginCredentials) {
@@ -35,7 +33,8 @@ export const useAuthStore = defineStore('auth', () => {
       body: credentials,
     })
 
-    await fetchUser()
+    if (login.error.value)
+      await fetchUser()
 
     return login
   }
@@ -48,8 +47,16 @@ export const useAuthStore = defineStore('auth', () => {
       body: info,
     })
 
-    await fetchUser()
+    if (signup.error.value)
+      await fetchUser()
+
     return signup
+  }
+
+  function $revoke() {
+    // remove user's session
+    user.value = null
+    useCookie('XSRF-TOKEN').value = ''
   }
 
   return {
@@ -59,5 +66,6 @@ export const useAuthStore = defineStore('auth', () => {
     fetchUser,
     logout,
     signup,
+    $revoke,
   }
 })
