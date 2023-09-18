@@ -18,7 +18,7 @@ export default defineNuxtConfig({
   routeRules: {
     '/tasks/**': { ssr: false },
     // eslint-disable-next-line n/prefer-global/process
-    '/api/**': { proxy: { to: `${process.env.NUXT_PUBLIC_API_URL || 'http://localhost'}/api/v1/**` } },
+    '/api/**': { proxy: { to: `${process.env.NUXT_PUBLIC_API_URL || 'http://localhost'}/api/${process.env.NUXT_PUBLIC_API_VERSION || 'v1'}/**` } },
     // eslint-disable-next-line n/prefer-global/process
     '/sanctum/csrf-cookie': { proxy: { to: `${process.env.NUXT_PUBLIC_API_URL || 'http://localhost'}/sanctum/csrf-cookie` } },
   },
@@ -60,7 +60,7 @@ export default defineNuxtConfig({
 
   imports: {
     dirs: [
-      // We need to import the store directory so that Pinia can auto-import
+      // We need to import the store directory so that Pinia can auto-import,
       './stores/*.ts',
     ],
     injectAtEnd: true,
