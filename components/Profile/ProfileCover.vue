@@ -62,7 +62,7 @@
     <NButton
       size="xs"
       btn="text-gray square"
-      class="absolute right-5 top-6 opacity-70 hover:opacity-100"
+      class="absolute right-5 top-6 opacity-70 delay-100 hover:opacity-100"
       icon
       label="i-heroicons-pencil"
     />

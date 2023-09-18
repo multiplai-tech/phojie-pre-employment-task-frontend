@@ -24,7 +24,7 @@ defineProps<ProfileDetailsProps>()
       <NButton
         size="xs"
         btn="text-gray"
-        class="opacity-70 hover:opacity-100"
+        class="opacity-70 delay-100 group-hover:opacity-100"
         icon
         label="i-heroicons-pencil"
       />
