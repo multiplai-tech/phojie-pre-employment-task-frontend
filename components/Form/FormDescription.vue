@@ -14,7 +14,7 @@ defineProps<ProfileDetailsProps>()
 </script>
 
 <template>
-  <div>
+  <div class="group">
     <div class="flex justify-between pl-7 pr-5">
       <h3 class="font-medium leading-7 text-$c-gray-900 text-base">
         {{ title }}
