@@ -10,6 +10,8 @@ const colorMode = useColorMode()
         <ClientOnly>
           <img
             alt="Logo"
+            height="100"
+            width="100"
             :src=" colorMode.preference === 'dark' ? '/goteam-og-light.png' : '/goteam-og.png'" class="h-8"
           >
         </ClientOnly>
