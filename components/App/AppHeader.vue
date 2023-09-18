@@ -52,7 +52,7 @@ const colorMode = useColorMode()
     <div class="flex">
       <div class="group flex cursor-pointer items-center space-x-2.5">
         <div class="text-right">
-          <div class="text-sm font-medium leading-1">
+          <div class="text-sm font-medium">
             Reyven Beloy
           </div>
           <div class="text-xs text-primary">
