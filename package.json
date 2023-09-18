@@ -22,7 +22,8 @@
     "@pinia/nuxt": "^0.4.11",
     "@vercel/analytics": "^1.0.2",
     "pinia": "^2.1.6",
-    "simple-git": "^3.18.0",
+    "simple-git": "^3.19.1",
+    "std-env": "^3.4.3",
     "zod": "^3.22.2"
   },
   "devDependencies": {

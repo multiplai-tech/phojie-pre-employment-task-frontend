@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     '@una-ui/nuxt',
     '@pinia/nuxt',
     '@vite-pwa/nuxt',
+    'nuxt-security',
     // nuxt-vitest, might be out of time for this one
 
     '~/modules/build-env', // used for CI/CD stuff
@@ -18,9 +19,9 @@ export default defineNuxtConfig({
   routeRules: {
     '/tasks/**': { ssr: false },
     // eslint-disable-next-line n/prefer-global/process
-    '/api/**': { proxy: { to: `${process.env.NUXT_PUBLIC_API_URL || 'https://localhost:8000'}/api/v1/**` } },
+    '/api/**': { proxy: { to: `${process.env.NUXT_PUBLIC_API_URL}|| 'http://localhost}/api/v1/**` } },
     // eslint-disable-next-line n/prefer-global/process
-    '/sanctum/csrf-cookie': { proxy: { to: `${process.env.NUXT_PUBLIC_API_URL || 'https://localhost:8000'}/sanctum/csrf-cookie` } },
+    '/sanctum/csrf-cookie': { proxy: { to: `${process.env.NUXT_PUBLIC_API_URL || 'http://localhost'}/sanctum/csrf-cookie` } },
   },
 
   app: {
