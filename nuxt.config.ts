@@ -10,10 +10,9 @@ export default defineNuxtConfig({
     '@una-ui/nuxt',
     '@pinia/nuxt',
     '@vite-pwa/nuxt',
-    'nuxt-security',
-    // nuxt-vitest, might be out of time for this one
-
+    // ...(isDevelopment) ? [] : ['nuxt-security'],
     '~/modules/build-env', // used for CI/CD stuff
+    // 🚧 nuxt-vitest, might be out of time for this one
   ],
 
   routeRules: {
