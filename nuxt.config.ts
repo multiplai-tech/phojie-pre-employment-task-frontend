@@ -18,7 +18,7 @@ export default defineNuxtConfig({
   routeRules: {
     '/tasks/**': { ssr: false },
     // eslint-disable-next-line n/prefer-global/process
-    '/api/**': { proxy: { to: `${process.env.NUXT_PUBLIC_API_URL || 'http://localhost'}/api/${process.env.NUXT_PUBLIC_API_VERSION || 'v1'}/**` } },
+    '/api/**': { proxy: { to: `${process.env.NUXT_PUBLIC_API_URL || 'http://localhost'}/api/v${process.env.NUXT_PUBLIC_API_VERSION || '1'}/**` } },
     // eslint-disable-next-line n/prefer-global/process
     '/sanctum/csrf-cookie': { proxy: { to: `${process.env.NUXT_PUBLIC_API_URL || 'http://localhost'}/sanctum/csrf-cookie` } },
   },
