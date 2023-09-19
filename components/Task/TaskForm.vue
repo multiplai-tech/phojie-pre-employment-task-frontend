@@ -4,7 +4,7 @@ import { taskSchema } from '~/schemas'
 const { storeTask, updateTask, fetchTasks, closeModal } = useTaskStore()
 const { loading, task: form, modal } = storeToRefs(useTaskStore())
 
-const { validateField, validateForm, errors } = useValidation(form, taskSchema)
+const { validateField, validateForm, errors, focusInput } = useValidation(form, taskSchema)
 
 async function submitForm() {
   // validate form
@@ -28,6 +28,10 @@ async function submitForm() {
     closeModal()
   }
 }
+
+onMounted(() => {
+  focusInput('title')
+})
 </script>
 
 <template>
