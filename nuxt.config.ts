@@ -1,3 +1,4 @@
+import { isDevelopment } from 'std-env'
 import { pwa } from './config/pwa'
 import { security } from './config/security'
 
@@ -10,7 +11,7 @@ export default defineNuxtConfig({
     '@una-ui/nuxt',
     '@pinia/nuxt',
     '@vite-pwa/nuxt',
-    // ...(isDevelopment) ? [] : ['nuxt-security'],
+    ...(isDevelopment) ? [] : ['nuxt-security'],
     '~/modules/build-env', // used for CI/CD stuff
     // 🚧 nuxt-vitest, might be out of time for this one
   ],
